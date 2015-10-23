@@ -151,8 +151,6 @@ describe('Testing Query Routes', function() {
       .get('/query/census/state')
       .end(function(err, res){
         res.should.have.status(200);
-        console.log(res.body);
-        res.should.be.json;
         res.body.should.be.a('array');
         res.body[0][0].should.equal('NAME');
         res.body[0][1].should.equal('DP05_0004PE');
@@ -160,6 +158,25 @@ describe('Testing Query Routes', function() {
         res.body[1][0].should.equal('Colorado');
         res.body[1][1].should.equal('6.3');
         res.body[1][3].should.equal('6.8');
+        done();
+      });
+  });
+
+
+  it('should list denver county age demographic', function(done) {
+    chai.request(server)
+      .get('/query/census/county')
+      .end(function(err, res){
+        res.should.have.status(200);
+        console.log(res.body);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body[0][0].should.equal('NAME');
+        res.body[0][1].should.equal('DP05_0004PE');
+        res.body[0][2].should.equal('DP05_0005PE');
+        res.body[1][0].should.equal('Denver County, Colorado');
+        res.body[1][1].should.equal('7.0');
+        res.body[1][3].should.equal('5.4');
         done();
       });
   });
