@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
 var routes = require('./routes/index.js');
 var userRoutes = require('./routes/users.js');
 var authRoutes = require('./routes/auth');
-
+var queryRoutes = require('./routes/query.js');
 
 var config = require('../../_config');
 
@@ -47,6 +47,7 @@ mongoose.connect(config.MONGO_URI[app.settings.env]);
 app.use('/', routes);
 app.use('/users/', userRoutes);
 app.use('/auth', authRoutes);
+app.use('/query/', queryRoutes);
 
 
 // catch 404 and forward to error handler

@@ -13,7 +13,7 @@ chai.use(chaiHttp);
 
 
 
-describe('Testing Main User Routes', function() {
+xdescribe('Testing Main User Routes', function() {
 
   User.collection.drop();
 
@@ -123,5 +123,47 @@ describe('Testing Main User Routes', function() {
         });
     });
   });
+
+});
+
+describe('Testing Query Routes', function() {
+
+
+
+  it('should list national data on age demographic', function(done) {
+    chai.request(server)
+      .get('/query/census/national')
+      .end(function(err, res){
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body[0][0].should.equal('NAME');
+        res.body[0][1].should.equal('DP05_0004PE');
+        res.body[0][2].should.equal('DP05_0005PE');
+        res.body[1][0].should.equal('United States');
+        res.body[1][1].should.equal('6.3');
+        done();
+      });
+  });
+
+  it('should list the state of colorado data on age demographic', function(done) {
+    chai.request(server)
+      .get('/query/census/state')
+      .end(function(err, res){
+        res.should.have.status(200);
+        console.log(res.body);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body[0][0].should.equal('NAME');
+        res.body[0][1].should.equal('DP05_0004PE');
+        res.body[0][2].should.equal('DP05_0005PE');
+        res.body[1][0].should.equal('Colorado');
+        res.body[1][1].should.equal('6.3');
+        res.body[1][3].should.equal('6.8');
+        done();
+      });
+  });
+
+
 
 });

@@ -25,6 +25,22 @@ router.get('/:id', function (req, res, next) {
 });
 
 
+//add query to user
+// router.post('/:id', function (req, res, next) {
+//   newQuery = new Query ({
+//     name: req.body.name,
+//     url: req.body.url
+//   });
+//   newQuery.saveQ()
+//     .then(function (result) {
+//       res.json({"SUCCESS":result});
+//       })
+//     .catch(function (err) {
+//       res.send(err);
+//       })
+//     .done();
+// });
+
 
 
 

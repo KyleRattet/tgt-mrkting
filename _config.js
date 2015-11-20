@@ -9,7 +9,10 @@ module.exports = {
  MONGO_URI: mongoURI,
  SALT_WORK_FACTOR: 10,
  GOOGLE_SECRET: process.env.GOOGLE_SECRET,
+ BEA_ID: process.env.BEA_ID,
+ CENS_ID: process.env.CENS_ID
 };
+
 
 
 
