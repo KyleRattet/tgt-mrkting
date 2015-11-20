@@ -13,10 +13,9 @@ chai.use(chaiHttp);
 
 
 
-describe('User Routes', function() {
+describe('Testing Main User Routes', function() {
 
   User.collection.drop();
-
 
   beforeEach(function(done){
     var newUser = new User({
@@ -52,9 +51,26 @@ describe('User Routes', function() {
     chai.request(server)
       .get('/users')
       .end(function(err, res){
-        console.log(res.body);
+        console.log(res.body[0].queries[0]);
         res.should.have.status(200);
         res.should.be.json;
+        res.body.should.be.a('array');
+        res.body[0].should.have.property('_id');
+        res.body[0].should.have.property('name');
+        res.body[0].should.have.property('username');
+        res.body[0].should.have.property('githubProfileID');
+        res.body[0].should.have.property('googleProfileID');
+        res.body[0].should.have.property('queries');
+        res.body[0].name.should.equal('John Doe');
+        res.body[0].email.should.equal('jdoe@test.com');
+        res.body[0].googleProfileID.should.equal('JonathonDoe');
+        res.body[0].username.should.equal('John_Doe');
+        res.body[0].queries[0].should.be.a('object');
+        res.body[0].queries[0].should.have.property('name');
+        res.body[0].queries[0].should.have.property('url')
+        res.body[0].queries[0].name.should.equal('Test1');
+        res.body[0].queries[0].url.should.equal('http://testqueryforTest1');
+        res.body[0].queries[2].url.should.equal('http://testqueryforTest3');
         done();
       });
   });
