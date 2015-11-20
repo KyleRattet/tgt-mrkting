@@ -6,11 +6,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
+var mongoose = require('mongoose');
 
 
 // *** routes *** //
 var routes = require('./routes/index.js');
+var userRoutes = require('./routes/users.js');
+var authRoutes = require('./routes/auth');
 
+
+var config = require('../../_config');
 
 // *** express instance *** //
 var app = express();
@@ -34,8 +39,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
 
 
+// *** mongoose ** //
+mongoose.connect(config.MONGO_URI[app.settings.env]);
+
+
 // *** main routes *** //
 app.use('/', routes);
+app.use('/users/', userRoutes);
+app.use('/auth', authRoutes);
 
 
 // catch 404 and forward to error handler
