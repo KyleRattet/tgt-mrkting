@@ -5,7 +5,7 @@ var mongoose = require('mongoose-q')(require('mongoose'));
 
 var User = require('../models/user.js');
 
-//get all userss
+//get all users
 router.get('/', function(req, res, next){
   User.findQ({})
   .then(function(data){
@@ -14,6 +14,14 @@ router.get('/', function(req, res, next){
   .catch(function(err){
     res.send(err);
   });
+});
+
+//get one user
+router.get('/:id', function (req, res, next) {
+  User.findByIdQ(req.params.id)
+  .then(function (result) { res.json(result) })
+  .catch(function (err) {res.send(err) })
+  .done();
 });
 
 
