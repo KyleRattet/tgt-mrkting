@@ -1,15 +1,20 @@
 language: node_js
-
 node_js:
-  - "5.1"
-  - "4.1"
-  - "4.0"
-  - '0.12'
-  - '0.11'
-
+- '5.1'
+- '4.1'
+- '4.0'
+- '0.12'
+- '0.11'
 services: mongodb
-
 before_script:
-  - npm install -g mocha
-
+- npm install -g mocha
 script: mocha
+deploy:
+  provider: heroku
+  api_key:
+    secure: cv76sFM6nevkYQacpQEn+cozMSPtlojhMO5O3qetO7ArJbiLqpgX1lFrla7J+qwN+7U+IY6RmoMAcwjpn83kyDaLsXMHpMlJO8oN4BibYrPDFwD9a3FgrHG5eVDW5L3ZPiYSjrnobJ6ubPOqDZq4huAv0REPYsS/KgRpewPYPPnGken8YAY88UeGKA4XXrFUAgju+jTNi93QBdYXWiapeO2VDqBjeByoFrekiMSYmFYik5tdqKmW6WQoBHjVJgGbTUj3Pu0gLF62kfg9hjBwBJcFO33xKcodL5EkDb7P/sPDHzJjN57dvhyy9IHo0pO1Z4YstNapndwc+JVLB1v7481VmlLwRSP/oskcjO6EE+NQROXjPOB7dTrcr90cFLxGCMS8UHIW5taymO4t+pC+9pU37RL+cdX4xnByYNL6DUJDns3OCWqW24qd0FPK2XbASXavt6ROVL/zlxz2fMvZZzLVT0YnlcDPoWy6B9qoEdPKUUKOi2z1KZyfxgP44xjPYfvZgjyMWWVho55z9ievndhMyxX0jWKGny22JxgMiKTGdTS+7jdK4ZXaOQcStdQ7xFrtXiTkJAJPWKAbWDNZiwsTy2Hlpwp9tf8+Uxe/GU1tJ0lv4jKCe6yPArHWirRq7WfjAoNtI9gKQJPga/ezFmapRduHbSsmmuqvUHyG6vQ=
+  app: target-marketing
+  on:
+    repo: KyleRattet/tgt-mrkting
+    branch: master
+    node: '5.1'
