@@ -9,6 +9,7 @@ app.controller('profileCtrl', function($scope, $rootScope, $http, $window) {
     var payload = {};
     payload.email = email;
     payload._id = JSON.parse(localStorage.getItem('currentUser'))._id;
+    console.log(payload, 'payload');
     if(password) {
       payload.password = password;
     }

@@ -104,6 +104,48 @@ router.post('/login', function(req, res) {
   });
 });
 
+// *** update user route *** //
+router.put('/update', ensureAuthenticated, function(req, res) {
+  console.log(req.body)
+  User.findOne({_id: req.body._id}, function(err, user) {
+    if (!user) {
+      return res.status(401).send({
+        message: {
+          email: 'Incorrect email'
+        }
+      });
+    }
+    user.email = req.body.email;
+    user.save(function() {
+      res.send(user);
+    });
+  });
+});
+
+// *** add query testing
+router.put('/addQuery', ensureAuthenticated, function(req, res) {
+  console.log(req.body, "server side")
+  console.log(req.body.name, "server side query name")
+  console.log(req.body.url, "server side query url")
+  User.findOne({_id: req.body._id}, function(err, user) {
+    if (!user) {
+      return res.status(401).send({
+        message: {
+          email: 'Incorrect email'
+        }
+      });
+    }
+    var newQuery = {name: req.body.name,
+                 url: req.body.url
+               };
+    console.log(newQuery);
+    user.queries.push(newQuery);
+    user.save(function() {
+      res.send(user);
+    });
+  });
+});
+
 // *** github auth *** //
 ///changed*****
 // app.post('/auth/github', function(req, res) {

@@ -3,13 +3,10 @@ var app = angular.module('MyApp', ['ngRoute', 'satellizer']);
 app.config(function($routeProvider, $authProvider, $locationProvider) {
 
   // *** satellizer settings *** //
+  //GitHub
   $authProvider.github({
-    //updated
-    // clientId: 'ADD CLIENT ID',
     url: '/auth/github',
     clientId: 'e51cab7f2ec0d95f1ad1',
-    ///updated
-    // redirectUri: 'UPDATE',
     redirectUri: window.location.origin
   });
   // Google
@@ -24,7 +21,8 @@ app.config(function($routeProvider, $authProvider, $locationProvider) {
       templateUrl: '/partials/welcome.html'
     })
     .when('/home', {
-      templateUrl: 'partials/home.html'
+      templateUrl: 'partials/home.html',
+      controller: 'queryCtrl'
     })
     .when('/login', {
       templateUrl: 'partials/login.html',
