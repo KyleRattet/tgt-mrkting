@@ -5,9 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var swig = require('swig');
 var mongoose = require('mongoose');
-
 
 // *** routes *** //
 var routes = require('./routes/index.js');
@@ -20,17 +18,6 @@ var config = require('../../_config');
 // *** express instance *** //
 var app = express();
 
-
-// *** view engine *** //
-var swig = new swig.Swig();
-app.engine('html', swig.renderFile);
-app.set('view engine', 'html');
-
-
-// *** static directory *** //
-app.set('views', path.join(__dirname, 'views'));
-
-
 // *** config middleware *** //
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -42,8 +29,6 @@ app.use(express.static(path.join(__dirname, '../client')));
 // *** mongoose ** //
 mongoose.connect(config.MONGO_URI[app.settings.env]);
 
-
-// *** main routes *** //
 app.use('/', routes);
 app.use('/users/', userRoutes);
 app.use('/auth', authRoutes);
@@ -84,3 +69,72 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+
+
+// *** main dependencies *** //
+// var express = require('express');
+// var path = require('path');
+// var logger = require('morgan');
+// var cookieParser = require('cookie-parser');
+// var bodyParser = require('body-parser');
+// var mongoose = require('mongoose');
+
+
+// // *** config file *** //
+// var config = require('../../_config');
+
+
+// // *** express instance *** //
+// var app = express();
+
+
+// // *** routes *** //
+// // var mainRoutes = require('./routes/index');
+// var authRoutes = require('./routes/auth');
+// var userRoutes = require('./routes/users.js');
+
+// // *** config middleware *** //
+// app.use(logger('dev'));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(cookieParser());
+// app.use(express.static(path.join(__dirname, '../../src/client')));
+
+
+// // *** mongoose ** //
+// mongoose.connect(config.MONGO_URI[app.settings.env]);
+
+// // *** main routes *** //
+// app.use('/', function (req,res) {
+//   res.sendFile(path.join(__dirname, '../client/views/', 'index.html'));
+// });
+// app.use('/auth', authRoutes);
+
+
+// // *** handle 404 error *** //
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
+
+
+// // *** error handlers *** //
+// if (app.get('env') === 'development') {
+//   app.use(function(err, req, res, next) {
+//     var status = err.status || 500;
+//     res.status(status).send({
+//       message: err.message,
+//       error: err
+//     });
+//   });
+// }
+// app.use(function(err, req, res, next) {
+//   var status = err.status || 500;
+//   res.status(status).send({
+//     message: err.message,
+//     error: err
+//   });
+// });
+
+// module.exports = app;

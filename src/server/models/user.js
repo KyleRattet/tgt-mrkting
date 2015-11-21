@@ -9,9 +9,6 @@ var User = new Schema({
   name: {
     type: String
   },
-  username: {
-    type: String
-  },
   email: {
     type: String,
     unique: true,
@@ -27,10 +24,11 @@ var User = new Schema({
   googleProfileID: {
     type: String
   },
-  queries: [ {
+  queries: [{
     name: String,
     url: String
-    } ]
+  }
+  ]
 });
 
 

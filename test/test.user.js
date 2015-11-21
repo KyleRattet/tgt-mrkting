@@ -47,7 +47,7 @@ xdescribe('Testing Main User Routes', function() {
     done();
   });
 
-   it('should list ALL users', function(done) {
+  it('should list ALL users', function(done) {
     chai.request(server)
       .get('/users')
       .end(function(err, res){
@@ -124,11 +124,60 @@ xdescribe('Testing Main User Routes', function() {
     });
   });
 
+  it("should update a query for a user on /user/id/addquery PUT", function(done){
+  chai.request(server)
+    .get('/users')
+    .end(function(err, res, data){
+      chai.request(server)
+        .put('/users/addquery')
+        .send({
+          'name': 'Test Query 14',
+          'url': "http://testquery1"
+          })
+        .end(function(error, response){
+          console.log(response.body)
+          response.should.have.status(200);
+          response.should.be.json;
+
+          // response.body.should.be.a('object');
+          // response.body.should.have.property('UPDATED');
+          // response.body.UPDATED.should.be.a('object');
+          // response.body.UPDATED.should.have.property('name');
+          // response.body.UPDATED.should.have.property('_id');
+          // response.body.UPDATED.name.should.equal('Google Inc.');
+          // response.body.UPDATED.shares.should.equal(200);
+          // response.body.UPDATED.costBasis.should.equal(670);
+          done();
+      });
+    });
+  });
+
+  // it('should add a query to a user', function(done) {
+  //   chai.request(server)
+  //     .get('/users/'+data.id +'/add-query')
+  //     .end(function(err, res){
+  //       console.log(res.body)
+  //       res.should.have.status(200);
+  //       res.should.be.json;
+  //       done();
+  //     });
+  // });
+
+  // it('should add a SINGLE query on POST', function(done) {
+  // chai.request(server)
+  //   .post('/users/'+data.id +'/add-query')
+  //   .send({'name': 'John Dow', 'ticker': 'AMZN'})
+  //   .end(function(err, res){
+  //     res.should.have.status(200);
+  //     res.should.be.json;
+  //     console.log(req.body);
+  //     done();
+  //   });
+  // });
+
 });
 
 describe('Testing Query Routes', function() {
-
-
 
   it('should list national data on age demographic', function(done) {
     chai.request(server)
@@ -180,7 +229,5 @@ describe('Testing Query Routes', function() {
         done();
       });
   });
-
-
 
 });

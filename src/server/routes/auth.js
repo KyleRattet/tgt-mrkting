@@ -65,6 +65,7 @@ router.post('/signup', function(req, res) {
       email: req.body.email,
       password: req.body.password
     });
+    console.log(user, "local user created")
     user.save(function() {
       var token = createToken(user);
       res.send({
@@ -92,6 +93,7 @@ router.post('/login', function(req, res) {
         });
       }
       user = user.toObject();
+      console.log(user, "local user login");
       delete user.password;
       var token = createToken(user);
       res.send({
@@ -138,6 +140,7 @@ router.post('/github', function(req, res) {
             user.email = profile.email;
             user.name = profile.name;
             user.githubProfileID = profile.id;
+            console.log(user, "user Github")
             user.save(function() {
               var token = createToken(user);
               res.send({
@@ -161,6 +164,7 @@ router.post('/github', function(req, res) {
           user.email = profile.email;
           user.name = profile.name;
           user.githubProfileID = profile.id;
+          console.log(user, "user Github")
           user.save(function() {
             var token = createToken(user);
             res.send({
@@ -217,6 +221,7 @@ router.post('/google', function(req, res) {
            user.name = profile.name;
            user.googleProfileID = profile.sub;
            user.email = profile.email;
+           console.log(user, "google user");
            user.save(function() {
              var token = createToken(user);
              res.send({
@@ -238,6 +243,7 @@ router.post('/google', function(req, res) {
          user.name = profile.name;
          user.googleProfileID = profile.sub;
          user.email = profile.email;
+         console.log(user, "google user");
          user.save(function(err) {
            var token = createToken(user);
            res.send({
