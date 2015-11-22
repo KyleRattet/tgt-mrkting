@@ -28,8 +28,7 @@ app.config(function($routeProvider, $authProvider, $locationProvider) {
       templateUrl: 'partials/login.html'
     })
     .when('/signup', {
-      templateUrl: 'partials/signup.html',
-      controller: 'signupCtrl'
+      templateUrl: 'partials/signup.html'
     })
     .when('/profile', {
       templateUrl: 'partials/profile.html',
