@@ -15,51 +15,49 @@
   </head>
   <body>
 
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div ng-controller="navbarCtrl" id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand" ng-if="!isAuthenticated()"><a href="#/">Home</a></li>
-                <li class="sidebar-brand" ng-if="isAuthenticated()"><a href="#/home">Home</a></li>
-                <li ng-if="!isAuthenticated()"><a href="#/home">Popular Metrics</a></li>
-                <li ng-if="isAuthenticated()"><a href="#/home">Popular Metrics</a></li>
-                <li ng-if="!isAuthenticated()"><a href="#/home">Research</a></li>
-                <li ng-if="isAuthenticated()"><a href="#/home">Research</a></li>
+    <div ng-controller="navbarCtrl">
+
+    <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a ng-if="!isAuthenticated()"a href="#/" class="navbar-brand">Home</a>
+              <a ng-if="isAuthenticated()" href="#/home" class="navbar-brand">Home</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
                 <li ng-if="!isAuthenticated()"><a href="#/login">Login</a></li>
                 <li ng-if="!isAuthenticated()"><a href="#/signup">Signup</a></li>
                 <li ng-if="isAuthenticated()"><a ng-click="logout()" href="">Logout</a></li>
                 <li ng-if="isAuthenticated()"><a href="#/profile">Profile</a></li>
-                <li ng-if="isAuthenticated()"><a href="#/profile">Past Searches</a></li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <!-- Page Content -->
-                    <div class="col-lg-12 text-center">
-                        <div ng-view></div>
-                    </div>
-                    <!-- /#Page Content -->
-
-                    <!-- Sidebar Toggle -->
-                    <div>
-                      <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle SideBar</a>
-                    </div>
-                    <!-- /#Sidebar Toggle -->
-                </div>
+              </ul>
             </div>
+            <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container -->
+        </nav>
+
+      </div>
+
+      <!-- Page Content -->
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <div ng-view></div>
+          </div>
         </div>
+        <!-- /.row -->
 
-
-
-
-    </div>
-    <!-- /#wrapper -->
-
-
+      </div>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

@@ -1,10 +1,9 @@
 app.controller('queryCtrl', function($scope, $rootScope, $http, $window) {
 
+
+  // console.log(JSON.parse(localStorage.getItem('currentUser'))._id)
   // $scope.email = JSON.parse(localStorage.getItem('currentUser')).email;
-  // $scope.queryName = $scope.email;
-  console.log(JSON.parse(localStorage.getItem('currentUser'))._id)
-  $scope.email = JSON.parse(localStorage.getItem('currentUser')).email;
-  $scope.newEmail = $scope.email;
+  // $scope.newEmail = $scope.email;
 
   $scope.addQuery = function(email, password) {
     $scope.message = "";
