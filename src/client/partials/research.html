@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="center-form panel">
+        <div class="panel-body">
+          <h2 class="text-center">Research</h2>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Category</h3>
+  </div>
+      <div class="panel-body">
+        <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        Age
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+        Education Attainment
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Scope or Location</h3>
+  </div>
+  <div class="panel-body">
+    List locations here
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Compare</h3>
+  </div>
+  <div class="panel-body">
+    This vs. that choice here
+  </div>
+</div>
+
+
+
+<div>
+  <h2>Testing Add Query</h2>
+  <form ng-submit="addQuery(query)">
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="queryName" placehold="query name" required>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="queryUrl" required placeholder="query url">
+    </div>
+    <button type="submit" class="btn btn-default btn-block">Add Query</button>
+  </form>
+</div>
+

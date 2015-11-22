@@ -1,0 +1,18 @@
+<!-- Sidebar -->
+<!-- ng-controller="navbarCtrl" -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand" ng-if="!isAuthenticated()"><a href="#/">Home</a></li>
+                <li class="sidebar-brand" ng-if="isAuthenticated()"><a href="#/home">Home</a></li>
+                <li ng-if="!isAuthenticated()"><a href="#/home">Popular Metrics</a></li>
+                <li ng-if="isAuthenticated()"><a href="#/home">Popular Metrics</a></li>
+                <li ng-if="!isAuthenticated()"><a href="#/research">Research</a></li>
+                <li ng-if="isAuthenticated()"><a href="#/research">Research</a></li>
+                <li ng-if="!isAuthenticated()"><a href="#/login">Login</a></li>
+                <li ng-if="!isAuthenticated()"><a href="#/signup">Signup</a></li>
+                <li ng-if="isAuthenticated()"><a ng-click="logout()" href="">Logout</a></li>
+                <li ng-if="isAuthenticated()"><a href="#/profile">Profile</a></li>
+                <li ng-if="isAuthenticated()"><a href="#/profile">Past Searches</a></li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->

@@ -20,8 +20,8 @@ app.config(function($routeProvider, $authProvider, $locationProvider) {
     .when('/', {
       templateUrl: '/partials/welcome.html'
     })
-    .when('/home', {
-      templateUrl: 'partials/home.html',
+    .when('/research', {
+      templateUrl: 'partials/research.html',
       controller: 'queryCtrl'
     })
     .when('/login', {
