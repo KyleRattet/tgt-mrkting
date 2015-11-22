@@ -25,8 +25,7 @@ app.config(function($routeProvider, $authProvider, $locationProvider) {
       controller: 'queryCtrl'
     })
     .when('/login', {
-      templateUrl: 'partials/login.html',
-      controller: 'loginCtrl'
+      templateUrl: 'partials/login.html'
     })
     .when('/signup', {
       templateUrl: 'partials/signup.html',
