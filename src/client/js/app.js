@@ -1,4 +1,4 @@
-var app = angular.module('MyApp', ['ngRoute', 'satellizer']);
+var app = angular.module('MyApp', ['ngRoute', 'satellizer', 'nvd3']);
 
 app.config(function($routeProvider, $authProvider, $locationProvider) {
 
@@ -21,8 +21,7 @@ app.config(function($routeProvider, $authProvider, $locationProvider) {
       templateUrl: '/partials/welcome.html'
     })
     .when('/research', {
-      templateUrl: 'partials/research.html',
-      controller: 'queryCtrl'
+      templateUrl: 'partials/research.html'
     })
     .when('/login', {
       templateUrl: 'partials/login.html'
@@ -30,9 +29,11 @@ app.config(function($routeProvider, $authProvider, $locationProvider) {
     .when('/signup', {
       templateUrl: 'partials/signup.html'
     })
+    .when('/dashboard', {
+      templateUrl: 'partials/dashboard.html'
+    })
     .when('/profile', {
       templateUrl: 'partials/profile.html',
-      controller: 'profileCtrl',
       access: {restricted: true}
     })
     .otherwise('/');
