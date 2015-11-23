@@ -1,0 +1,19 @@
+<div class="panel-body">
+<div class="radio" ng-repeat="category in categories" >
+      <label>
+        <input type="radio" ng-model="$parent.category" name="category" value="{{category.value}}" required />
+        {{category.label}}
+      </label>
+</div>
+</div>
+
+<!-- <li ng-repeat="person in people">
+            <label>{{person.name}}
+                <input type="radio" ng-model="$parent.name" name="name" value="{{person.value}}" required />
+            </label>
+        </li>
+ -->
+
+<!-- <select ng-model="state_select"  class="form-control">
+      <option ng-repeat="state in state_list" value="{{state.value}}">{{state.name}}</option>
+</select> -->

@@ -3,53 +3,6 @@ app.directive('dashboard', function () {
     restrict: 'E',
     controller: function ($scope, $http, $auth, $location, $window, $rootScope, httpFactory) {
 
-
-
-      //pie test with dummy data
-      $scope.nationalOptions = {
-            chart: {
-                type: 'pieChart',
-                height: 500,
-                x: function(d){return d.key;},
-                y: function(d){return d.y;},
-                showLabels: true,
-                donut:"true",
-                donutRatio:".50",
-                duration: 500,
-                labelThreshold: 0.01,
-                labelSunbeamLayout: true,
-                legend: {
-                    margin: {
-                        top: 5,
-                        right: 35,
-                        bottom: 5,
-                        left: 0
-                    }
-                }
-            }
-        };
-
-        //pie test with dummy data
-        $scope.nationalData = [
-            {
-                key: "0-5",
-                y: 10
-            },
-            {
-                key: "5-9",
-                y: 20
-            },
-            {
-                key: "10-14",
-                y: 30
-            },
-            {
-                key: "15-19",
-                y: 40
-            }
-
-        ];
-
         //bar chart test with dummy data
         $scope.optionsDiscreteBar = {
             chart: {

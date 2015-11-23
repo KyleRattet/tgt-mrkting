@@ -7,18 +7,9 @@ var CENS_id = process.env.CENS_ID;
 
 
 router.get('/census/national', function(req, res, next) {
-  console.log(req.query, "req query server side");
+  var queryCodes = req.query.category;
+  var url = "http://api.census.gov/data/2013/acs1/profile?get=NAME,"+queryCodes+"&for=us:*&key="+CENS_id;
 
-  // ///function to build up url
-  // var queryBuild = ifClicked(req.query);
-  // console.log(queryBuild, "query string builder");
-
-  // var queryCodes = queryBuild[1];
-
-
-  // var url = "http://api.census.gov/data/2013/acs1/profile?get=NAME,"+queryCodes+"&for=us:*&key="+CENS_id;
-  // console.log(url, "url")
-  var url = 'http://api.census.gov/data/2013/acs1/profile?get=NAME,DP05_0004PE,DP05_0005PE,DP05_0006PE,DP05_0007PE,DP05_0008PE,DP05_0009PE,DP05_0010PE,DP05_0011PE,DP05_0012PE,DP05_0013PE,DP05_0014PE,DP05_0015PE,DP05_0016PE,DP05_0001PE&for=us:*&key='+CENS_id;
   http.get(url, function(response) {
       var body = '';
 
@@ -38,7 +29,7 @@ router.get('/census/national', function(req, res, next) {
 });
 
 router.get('/census/state', function(req, res, next) {
-  console.log(req.query, "req query server side");
+  console.log(req.query, "state req query server side");
 
   ///function to build up url
   // var queryBuild = ifClicked(req.query);
@@ -47,11 +38,12 @@ router.get('/census/state', function(req, res, next) {
   // var queryCodes = queryBuild[1];
   // console.log(state, "state");
   // console.log(queryCodes, "query codes");
+  var queryCodes = req.query.category;
+  var state = req.query.state;
+  var url = "http://api.census.gov/data/2013/acs1/profile?get=NAME,"+queryCodes+"&for=state:"+state+"&key="+CENS_id;
+  console.log(url, "url state")
 
-  // var url = "http://api.census.gov/data/2013/acs1/profile?get=NAME,"+queryCodes+"&for=state:"+state+"&key="+CENS_id;
-  // console.log(url, "url state")
-
-  var url = 'http://api.census.gov/data/2013/acs1/profile?get=NAME,DP05_0004PE,DP05_0005PE,DP05_0006PE,DP05_0007PE,DP05_0008PE,DP05_0009PE,DP05_0010PE,DP05_0011PE,DP05_0012PE,DP05_0013PE,DP05_0014PE,DP05_0015PE,DP05_0016PE,DP05_0001PE&for=state:08&key='+CENS_id;
+  // var url = 'http://api.census.gov/data/2013/acs1/profile?get=NAME,DP05_0004PE,DP05_0005PE,DP05_0006PE,DP05_0007PE,DP05_0008PE,DP05_0009PE,DP05_0010PE,DP05_0011PE,DP05_0012PE,DP05_0013PE,DP05_0014PE,DP05_0015PE,DP05_0016PE,DP05_0001PE&for=state:08&key='+CENS_id;
   http.get(url, function(response) {
       var body = '';
 
