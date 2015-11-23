@@ -152,34 +152,13 @@ xdescribe('Testing Main User Routes', function() {
     });
   });
 
-  // it('should add a query to a user', function(done) {
-  //   chai.request(server)
-  //     .get('/users/'+data.id +'/add-query')
-  //     .end(function(err, res){
-  //       console.log(res.body)
-  //       res.should.have.status(200);
-  //       res.should.be.json;
-  //       done();
-  //     });
-  // });
 
-  // it('should add a SINGLE query on POST', function(done) {
-  // chai.request(server)
-  //   .post('/users/'+data.id +'/add-query')
-  //   .send({'name': 'John Dow', 'ticker': 'AMZN'})
-  //   .end(function(err, res){
-  //     res.should.have.status(200);
-  //     res.should.be.json;
-  //     console.log(req.body);
-  //     done();
-  //   });
-  // });
 
 });
 
 describe('Testing Query Routes', function() {
 
-  it('should list national data on age demographic', function(done) {
+  xit('should list national data on age demographic', function(done) {
     chai.request(server)
       .get('/query/census/national')
       .end(function(err, res){
@@ -195,7 +174,7 @@ describe('Testing Query Routes', function() {
       });
   });
 
-  it('should list the state of colorado data on age demographic', function(done) {
+  xit('should list the state of colorado data on age demographic', function(done) {
     chai.request(server)
       .get('/query/census/state')
       .end(function(err, res){
