@@ -7,9 +7,11 @@ app.directive('research', function () {
 
     //use to build out query
     var parameters = {
-      ageBreakdown: $scope.age,
+      category: $scope.category,
         };
-    // var state = $scope.state_select;
+        console.log(parameters, "search params, radio clicked");
+    var state = $scope.state_select;
+    console.log(state, "state value");
     httpFactory.get(url, {params: parameters})
     .then(function(response){
         console.log(response, "api info response");
@@ -163,6 +165,8 @@ app.directive('research', function () {
             console.log('handle error: ', err);
           });
       };
+
+
     },
     templateUrl: 'research/research.html',
   };
