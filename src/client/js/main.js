@@ -23,3 +23,16 @@ function formatChartData (keys, values) {
 }
 
 
+///find right keys to use
+function findKeys (keyArray, valueString) {
+  var searchString = valueString.slice(0,9);
+  var useKeys = [];
+  for (var i = 0; i < keyArray.length; i++) {
+    if (keyArray[i] === searchString) {
+      useKeys.push(keyArray[i])
+    }
+  }
+
+  return useKeys;
+
+}

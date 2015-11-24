@@ -23,6 +23,10 @@ app.directive('pieChartData', function () {
                         left: 0
                     }
                 }
+            },
+            title: {
+                enable: true,
+                text: 'Pie Chart'
             }
         };
 

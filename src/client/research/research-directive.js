@@ -3,88 +3,56 @@ app.directive('research', function () {
     restrict: 'E',
     controller: function ($scope, $rootScope, $http, $window, httpFactory) {
 
-        ///helpful function to format chart data
+        ///helper function to format chart data
     function formatChartData (keys, values) {
+
+      var valuesClean = values.shift();
+      var keysClean = keys.shift();
+
       var data = [];
-      for(var i=0; i<keys.length; i++)  {
+      for(var i=0; i<keysClean.length - 1; i++)  {
       data[i] = {};
-      data[i].key = keys[i];
+      data[i].key = keysClean[i + 1];
       data[i].y = values[i];
       }
         return data;
     }
+
+    function findKeys (keyArray, valueString) {
+      var searchString = valueString.slice(0,9);
+
+      var useKeys = [];
+      for (var i = 0; i < keyArray.length; i++) {
+        if (keyArray[i][0] === searchString) {
+          useKeys.push(keyArray[i]);
+        }
+      }
+
+      return useKeys;
+
+    }
+
+    $scope.chartKeys = [
+        ['DP05_0004','0-5','5-9','10-14', '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
+        ['DP02_0059','< 9th Grade','9th-12th No Diploma','High School Graduate', 'Some College, No Degree', 'Associates Degree', 'Bachelors Degree', 'Graduate Degree'],
+        ['DP03_0052','<$10k','$15k-$25k','$25k-$35k', '$35k-$50k', '$50k-$75k', '$75k-$100k', '$100k-$150k','$150k-$200k', '$200k+']
+
+    ];
 
     getNatInfo = function (url) {
 
     var parameters = {
       category: $scope.category
         };
-    console.log(parameters, "params");
     var state = $scope.state_select;
 
-    ///stopping point
+    var keys = findKeys($scope.chartKeys, $scope.category);
 
-    var keys = $scope.category.chartKeys;
-    console.log(keys, "category keys");
     httpFactory.get(url, {params: parameters})
     .then(function(response){
-        $scope.usData = response.data[1]
-        console.log($scope.usData, "us data response");
+        $scope.usData = response.data[1];
         $scope.Data = formatChartData(keys ,$scope.usData);
-        // $scope.Data = [
-        //     {
-        //         key: "0-5",
-        //         y: $scope.usData[1]
-        //     },
-        //     {
-        //         key: "5-9",
-        //         y: $scope.usData[2]
-        //     },
-        //     {
-        //         key: "10-14",
-        //         y: $scope.usData[3]
-        //     },
-        //     {
-        //         key: "15-19",
-        //         y: $scope.usData[4]
-        //     },
-        //     {
-        //         key: "20-24",
-        //         y: $scope.usData[5]
-        //     },
-        //     {
-        //         key: "25-34",
-        //         y: $scope.usData[6]
-        //     },
-        //     {
-        //         key: "35-44",
-        //         y: $scope.usData[7]
-        //     },
-        //     {
-        //         key: "45-54",
-        //         y: $scope.usData[8]
-        //     },
-        //     {
-        //         key: "55-59",
-        //         y: $scope.usData[9]
-        //     },
-        //     {
-        //         key: "60-64",
-        //         y: $scope.usData[10]
-        //     },
-        //     {
-        //         key: "65-74",
-        //         y: $scope.usData[11]
-        //     },
-        //     {
-        //         key: "75-84",
-        //         y: $scope.usData[12]
-        //     },
-        //     {
-        //         key: "85+",
-        //         y: $scope.usData[13]
-        //     }
-        // ];
+
 
     //     $scope.dataDiscreteBar = [
     //         {
