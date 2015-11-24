@@ -8,3 +8,18 @@ $(document).on('ready', function() {
         $("#wrapper").toggleClass("toggled");
     });
 });
+
+
+//format chart key values
+function formatChartData (keys, values) {
+  var arrayOfObjects = [];
+
+  for (var i = 0; i < keys.length; i++) {
+    arrayOfObjects[keys[i]] = values[i];
+  }
+
+  return arrayOfObjects;
+
+}
+
+

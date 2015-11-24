@@ -3,9 +3,12 @@ process.env.NODE_ENV = 'test';
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var mongoose = require('mongoose');
+// var http = require('http');
 
 var server = require('../src/server/app');
 var User = require('../src/server/models/user');
+var BEA_id = process.env.BEA_ID;
+var CENS_id = process.env.CENS_ID;
 
 var should = chai.should();
 chai.use(chaiHttp);
@@ -159,17 +162,18 @@ xdescribe('Testing Main User Routes', function() {
 describe('Testing Query Routes', function() {
 
   xit('should list national data on age demographic', function(done) {
+
     chai.request(server)
       .get('/query/census/national')
       .end(function(err, res){
         res.should.have.status(200);
         res.should.be.json;
-        res.body.should.be.a('array');
-        res.body[0][0].should.equal('NAME');
-        res.body[0][1].should.equal('DP05_0004PE');
-        res.body[0][2].should.equal('DP05_0005PE');
-        res.body[1][0].should.equal('United States');
-        res.body[1][1].should.equal('6.3');
+        // res.body.should.be.a('array');
+        // res.body[0][0].should.equal('NAME');
+        // res.body[0][1].should.equal('DP05_0004PE');
+        // res.body[0][2].should.equal('DP05_0005PE');
+        // res.body[1][0].should.equal('United States');
+        // res.body[1][1].should.equal('6.3');
         done();
       });
   });
