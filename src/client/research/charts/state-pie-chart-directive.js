@@ -1,9 +1,9 @@
-app.directive('pieChartData', function () {
+app.directive('statePieChartData', function () {
   return {
     restrict: 'E',
     controller: function ($scope, $rootScope, $http, $window, httpFactory) {
 
-    $scope.Options = {
+    $scope.stateOptions = {
             chart: {
                 type: 'pieChart',
                 height: 500,
@@ -26,11 +26,11 @@ app.directive('pieChartData', function () {
             },
             title: {
                 enable: true,
-                text: 'Pie Chart'
+                text: 'State Pie Chart'
             }
         };
 
     },
-    templateUrl: 'research/charts/pie-chart.html',
+    templateUrl: 'research/charts/state-pie-chart.html',
   };
 });

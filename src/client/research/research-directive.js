@@ -18,6 +18,7 @@ app.directive('research', function () {
         return data;
     }
 
+    //helper function to find keys for the pie chart
     function findKeys (keyArray, valueString) {
       var searchString = valueString.slice(0,9);
 
@@ -30,6 +31,18 @@ app.directive('research', function () {
 
       return useKeys;
 
+    }
+
+    //helper function to convert pie data into discrete bar chart data
+    function convertToDiscreteBarData (array) {
+        var results = [];
+        var convert = array.map(function(obj) {
+        results.push({
+            label: obj.key,
+            value: obj.y
+        });
+    });
+        return results;
     }
 
     $scope.chartKeys = [
@@ -52,59 +65,12 @@ app.directive('research', function () {
     .then(function(response){
         $scope.usData = response.data[1];
         $scope.Data = formatChartData(keys ,$scope.usData);
-
-
-    //     $scope.dataDiscreteBar = [
-    //         {
-    //             key: "Cumulative Return",
-    //             values: [
-    //                 {
-    //                     "label" : "0-5" ,
-    //                     "value" : $scope.usData[1]
-    //                 } ,
-    //                 {
-    //                     "label" : "5-9" ,
-    //                     "value" : $scope.usData[2]
-    //                 } ,
-    //                 {
-    //                     "label" : "10-14" ,
-    //                     "value" : $scope.usData[3]
-    //                 } ,
-    //                 {
-    //                     "label" : '15-19' ,
-    //                     "value" : $scope.usData[4]
-    //                 } ,
-    //                 {
-    //                     "label" : "20-24" ,
-    //                     "value" : $scope.usData[5]
-    //                 } ,
-    //                 {
-    //                     "label" : "35-44" ,
-    //                     "value" : $scope.usData[6]
-    //                 } ,
-    //                 {
-    //                     "label" : "45-54" ,
-    //                     "value" : $scope.usData[7]
-    //                 } ,
-    //                 {
-    //                     "label" : "60-64" ,
-    //                     "value" : $scope.usData[8]
-    //                 } ,
-    //                 {
-    //                     "label" : "65-74" ,
-    //                     "value" : $scope.usData[9]
-    //                 } ,
-    //                 {
-    //                     "label" : "75-84" ,
-    //                     "value" : $scope.usData[10]
-    //                 } ,
-    //                 {
-    //                     "label" : "85+" ,
-    //                     "value" : $scope.usData[11]
-    //                 }
-    //             ]
-    //         }
-    //     ]
+        $scope.nationalDiscreteBarData = [
+            {
+                key: "Cumulative Return",
+                values: convertToDiscreteBarData($scope.Data)
+            }
+            ];
         });
       };
 
@@ -115,67 +81,17 @@ app.directive('research', function () {
           category: $scope.category,
           state: $scope.state_select
             };
-        // var state = $scope.state_select;
+        var state = $scope.state_select;
+        var keys = findKeys($scope.chartKeys, $scope.category);
         httpFactory.get(url, {params: parameters})
         .then(function(response){
 
-            console.log(response, "state api info response");
-            // $scope.stateData = response.data[1]
-            // console.log($scope.stateData, "state data response")
-            // $scope.statePieData = [
-            //     {
-            //         key: "0-5",
-            //         y: $scope.stateData[1]
-            //     },
-            //     {
-            //         key: "5-9",
-            //         y: $scope.stateData[2]
-            //     },
-            //     {
-            //         key: "10-14",
-            //         y: $scope.stateData[3]
-            //     },
-            //     {
-            //         key: "15-19",
-            //         y: $scope.stateData[4]
-            //     },
-            //     {
-            //         key: "20-24",
-            //         y: $scope.stateData[5]
-            //     },
-            //     {
-            //         key: "25-34",
-            //         y: $scope.stateData[6]
-            //     },
-            //     {
-            //         key: "35-44",
-            //         y: $scope.stateData[7]
-            //     },
-            //     {
-            //         key: "45-54",
-            //         y: $scope.stateData[8]
-            //     },
-            //     {
-            //         key: "55-59",
-            //         y: $scope.stateData[9]
-            //     },
-            //     {
-            //         key: "60-64",
-            //         y: $scope.stateData[10]
-            //     },
-            //     {
-            //         key: "65-74",
-            //         y: $scope.stateData[11]
-            //     },
-            //     {
-            //         key: "75-84",
-            //         y: $scope.stateData[12]
-            //     },
-            //     {
-            //         key: "85+",
-            //         y: $scope.stateData[13]
-            //     }
-            // ];
+
+            $scope.stateData = response.data[1]
+
+            $scope.stateData = formatChartData(keys ,$scope.stateData);
+            console.log($scope.stateData, "pie chart for state data")
+
         });
       };
 
@@ -184,9 +100,9 @@ app.directive('research', function () {
         getNatInfo('/query/census/national');
       };
 
-      // $scope.getStateData = function () {
-      //   getStateInfo('/query/census/state');
-      // };
+      $scope.getStateData = function () {
+        getStateInfo('/query/census/state');
+      };
       // console.log(JSON.parse(localStorage.getItem('currentUser'))._id)
       // $scope.email = JSON.parse(localStorage.getItem('currentUser')).email;
       // $scope.newEmail = $scope.email;

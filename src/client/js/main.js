@@ -36,3 +36,9 @@ function findKeys (keyArray, valueString) {
   return useKeys;
 
 }
+
+var pieData = [
+ { key: "< 9th Grade", y: "5.8"},
+ { key: "9th-12th No Diploma",y: "7.6"},
+ { key: "12th",y: "15"}
+]
