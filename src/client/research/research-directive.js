@@ -85,12 +85,14 @@ app.directive('research', function () {
         var keys = findKeys($scope.chartKeys, $scope.category);
         httpFactory.get(url, {params: parameters})
         .then(function(response){
-
-
-            $scope.stateData = response.data[1]
-
-            $scope.stateData = formatChartData(keys ,$scope.stateData);
-            console.log($scope.stateData, "pie chart for state data")
+            $scope.stateData = response.data[1];
+            $scope.statePieData = formatChartData(keys ,$scope.stateData);
+            $scope.stateDiscreteBarData = [
+            {
+                key: "Cumulative Return",
+                values: convertToDiscreteBarData($scope.statePieData)
+            }
+            ];
 
         });
       };
