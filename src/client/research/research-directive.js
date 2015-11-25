@@ -63,8 +63,10 @@ app.directive('research', function () {
 
     httpFactory.get(url, {params: parameters})
     .then(function(response){
+        console.log(response.data, "usdata")
         $scope.usData = response.data[1];
         $scope.Data = formatChartData(keys ,$scope.usData);
+
         $scope.nationalDiscreteBarData = [
             {
                 key: "Cumulative Return",
@@ -76,7 +78,6 @@ app.directive('research', function () {
 
       getStateInfo = function (url) {
 
-        //use to build out query
         var parameters = {
           category: $scope.category,
           state: $scope.state_select
@@ -85,7 +86,9 @@ app.directive('research', function () {
         var keys = findKeys($scope.chartKeys, $scope.category);
         httpFactory.get(url, {params: parameters})
         .then(function(response){
+
             $scope.stateData = response.data[1];
+
             $scope.statePieData = formatChartData(keys ,$scope.stateData);
             $scope.stateDiscreteBarData = [
             {

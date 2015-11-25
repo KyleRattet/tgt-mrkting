@@ -22,11 +22,15 @@ app.directive('stateDiscreteBarChartData', function () {
                 duration: 500,
                 xAxis: {
                     axisLabel: 'Age'
+
                 },
                 yAxis: {
                     axisLabel: 'Percent of Population',
-                    axisLabelDistance: -10
+                    axisLabelDistance: -10,
+                    showMaxMin: true
                 },
+                forceY: [0,30],
+
 
             },
             title: {
