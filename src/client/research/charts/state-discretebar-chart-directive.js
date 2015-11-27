@@ -29,7 +29,7 @@ app.directive('stateDiscreteBarChartData', function () {
                     axisLabelDistance: -10,
                     showMaxMin: true
                 },
-                forceY: [0,30],
+                forceY: [0,1],
 
 
             },

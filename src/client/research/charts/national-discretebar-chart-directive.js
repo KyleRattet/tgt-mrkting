@@ -27,7 +27,7 @@ app.directive('nationalDiscreteBarChartData', function () {
                     axisLabel: 'Percent of Population',
                     axisLabelDistance: -10
                 },
-                forceY: [0,25],
+                forceY: [0,20],
 
             },
             title: {
