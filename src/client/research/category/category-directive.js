@@ -31,8 +31,8 @@ app.directive('categoryData', function () {
          },
          {
           label: 'Ethnicity',
-          value:'DP05_0032PE,DP05_0033PE,DP05_0034PE,DP05_0047PE,DP05_0039PE,DP05_0052PE,DP05_0053PE',
-          chartKeys: ['White','African American','American Indian/Alaska Native', 'Native Hawaiian/Pacific Islander', 'Asian', 'Other', 'Two or More Races']
+          value:'DP05_0072PE,DP05_0073PE,DP05_0066PE,DP05_0075PE,DP05_0076PE,DP05_0074PE,DP05_0077PE',
+          chartKeys: ['White','African American','Latino', 'Asian', 'Native Hawaiian and Other Pacific Islander', 'American Indian/Alaskan Native', 'Some Other Race']
          }
       ];
     },

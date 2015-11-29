@@ -51,7 +51,7 @@ app.directive('research', function () {
         ['DP03_0052','<$10k','$15k-$25k','$25k-$35k', '$35k-$50k', '$50k-$75k', '$75k-$100k', '$100k-$150k','$150k-$200k', '$200k+'],
         ['DP04_0080','<$50k','$50k-100k','$100k-150k', '$150k-200k', '$200k-300k', '$300k-500k', '$500k-1mm','$1mm+'],
         ['DP03_0004','Employed','Unemployed','Armed Forces', 'Not in Labor Force'],
-        ['DP05_0032','White','African American','American Indian/Alaska Native', 'Native Hawaiian/Pacific Islander', 'Asian', 'Other', 'Two or More Races']
+        ['DP05_0072','White','African American','Latino', 'Asian', 'Native Hawaiian and Other Pacific Islander', 'American Indian/Alaskan Native', 'Some Other Race']
     ];
 
     getNatInfo = function (url) {
