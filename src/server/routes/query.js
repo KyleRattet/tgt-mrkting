@@ -30,7 +30,7 @@ router.get('/census/national', function(req, res, next) {
 
 });
 
-router.get('/bea', function(req, res, next) {
+router.get('/bea/gdp', function(req, res, next) {
   var url = 'http://bea.gov/api/data/?UserID='+BEA_id+'-Key&method=GetData&datasetname=RegionalData&KeyCode=GDP_SP&Year=2014&GeoFips=STATE&ResultFormat=json';
   http.get(url, function(response) {
       var body = '';
@@ -47,8 +47,25 @@ router.get('/bea', function(req, res, next) {
     }).on('error', function(e) {
       console.log("Got error: " + e.message);
     });
+});
 
+router.get('/bea/personal-income', function(req, res, next) {
+  var url = 'http://bea.gov/api/data/?UserID='+BEA_id+'-Key&method=GetData&datasetname=RegionalData&KeyCode=PCPI_SI&Year=2014&GeoFips=STATE&ResultFormat=json';
+  http.get(url, function(response) {
+      var body = '';
 
+      response.on('data', function(chunk) {
+
+        body += chunk;
+      });
+
+      response.on('end', function() {
+
+        res.send(JSON.parse(body));
+      });
+    }).on('error', function(e) {
+      console.log("Got error: " + e.message);
+    });
 });
 
 router.get('/census/state', function(req, res, next) {

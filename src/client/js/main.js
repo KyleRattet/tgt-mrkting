@@ -92,21 +92,3 @@ function sorted (array, a, b, property) {
 
 
 
-// var remove  = 'United States', 'Southeast', 'Far West', 'Mid East', 'Great Lakes', 'Southwest', 'Plains', 'New England', 'Rocky Mountain';
-
-
-// function remove (array) {
-//   var clean = [];
-//   for (var i = 0; i < array.length; i++) {
-//     if(array[i].GeoName === 'United States' || 'Southeast' || 'Far West' || 'Mid East' || 'Great Lakes' || 'Southwest' || 'Plains' || 'New England' || 'Rocky Moutain') {
-//       array.splice(i,1);
-//     }
-//   }
-
-//   return array;
-// }
-
-
-
-
-

@@ -19,27 +19,24 @@
     <div class="col-sm-3 col-xs-6">
         <label>State GDP Ranking</label>
 
-            {{position}} out of 50
-
+            {{GDPposition}} out of 50
+            <state-gauge-chart-data></state-gauge-chart-data>
     </div>
 
     <div class="col-sm-3 col-xs-6">
         <label>State  ($ in Millions)</label>
-            ${{stateObjectGDP | number:0}}
+            ${{stateGDP | number:0}}
+
     </div>
 
     <div class="col-sm-3 col-xs-6">
-        <label>Search Field</label>
-        <a href="#">
-            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-        </a>
+        <label>State Personal Income Ranking</label>
+            {{incomePosition}} out of 50
     </div>
 
     <div class="col-sm-3 col-xs-6">
-        <label>Search Field</label>
-        <a href="#">
-            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-        </a>
+        <label>State Personal Income $</label>
+        ${{stateIncome | number:0}}
     </div>
 
 </div>
@@ -53,14 +50,14 @@
     <div class="col-md-8 col-xs-12">
     <label>National Data</label>
         <div>
-          <national-pie-chart-data><national-pie-chart-data>
+          <national-pie-chart-data></national-pie-chart-data>
         </div>
     </div>
     <div class="col-md-4 col-xs-12">
       <label>State Pie Data for {{stateTitle}}</label>
 
         <div>
-          <state-pie-chart-data><state-pie-chart-data>
+          <state-pie-chart-data></state-pie-chart-data>
         </div>
     </div>
 

@@ -3,62 +3,6 @@ app.directive('research', function () {
     restrict: 'E',
     controller: function ($scope, $rootScope, $http, $window, httpFactory) {
 
-
-
-        ///helper function to format chart data
-    function formatChartData (keys, values) {
-
-      var valuesClean = values.shift();
-      var keysClean = keys.shift();
-
-      var data = [];
-      for(var i=0; i<keysClean.length - 1; i++)  {
-      data[i] = {};
-      data[i].key = keysClean[i + 1];
-      data[i].y = values[i];
-      }
-        return data;
-    }
-
-    //helper function to find keys for the pie chart
-    function findKeys (keyArray, valueString) {
-      var searchString = valueString.slice(0,9);
-
-      var useKeys = [];
-      for (var i = 0; i < keyArray.length; i++) {
-        if (keyArray[i][0] === searchString) {
-          useKeys.push(keyArray[i]);
-        }
-      }
-
-      return useKeys;
-
-    }
-
-    //helper function to convert pie data into discrete bar chart data
-    function convertToDiscreteBarData (array) {
-        var results = [];
-        var convert = array.map(function(obj) {
-        results.push({
-            label: obj.key,
-            value: obj.y
-        });
-    });
-        return results;
-    }
-
-    // helper function to clean BEA data
-    function cleanArray(array) {
-        var clean =[];
-        for (var i = 0; i<array.length; i++) {
-            if (array[i].GeoName != 'United States' && array[i].GeoName != 'Plains'
-                && array[i].GeoName != 'Southeast' && array[i].GeoName != 'Far West' && array[i].GeoName != 'Mideast' && array[i].GeoName != 'Great Lakes' && array[i].GeoName != 'Southwest' && array[i].GeoName != 'New England' && array[i].GeoName != 'Rocky Mountain') {
-                clean.push(array[i]);
-            }
-        }
-      return clean;
-    }
-
     $scope.chartKeys = [
         ['DP05_0004','0-5','5-9','10-14', '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
         ['DP02_0059','< 9th Grade','9th-12th No Diploma','High School Graduate', 'Some College, No Degree', 'Associates Degree', 'Bachelors Degree', 'Graduate Degree'],
@@ -92,7 +36,7 @@ app.directive('research', function () {
         });
       };
 
-      getStateInfo = function (url) {
+    getStateInfo = function (url) {
 
         var parameters = {
           category: $scope.category,
@@ -115,10 +59,10 @@ app.directive('research', function () {
             ];
 
         });
-      };
+    };
 
     //national gdp data
-      getBEADATA = function (url) {
+    getBeaGDPDATA = function (url) {
 
         httpFactory.get(url)
         .then(function(response){
@@ -135,10 +79,46 @@ app.directive('research', function () {
         });
         };
 
+    //national gdp data
+      getBeaGDPData = function (url) {
 
+        httpFactory.get(url)
+        .then(function(response){
+            var results = response.data.BEAAPI.Results.Data;
+            var sorted = results.sort(function(a, b) {
+                return b.DataValue - a.DataValue;
+            });
+            var cleaned = (cleanArray(sorted));
+            var stateRankingName = $scope.stateTitle;
+            $scope.GDPposition  = (cleaned.map(function(e) { return e.GeoName; }).indexOf(stateRankingName) + 1);
+            // var stateObject = cleaned[$scope.position -1].DataValue;
+            $scope.stateGDP = cleaned[$scope.GDPposition -1].DataValue;
+            $scope.stateGPDGaugeData = {
+                "ranges": [0,25,50],
+                "measures": [$scope.GDPposition],
+                "markers": [$scope.GDPposition]
+            };
+            });
+            };
 
+    //state gdp data
+      getPersonalIncomeData = function (url) {
 
+        httpFactory.get(url)
+        .then(function(response){
+            var results = response.data.BEAAPI.Results.Data;
+            console.log(results, 'personal income results')
+            var sorted = results.sort(function(a, b) {
+                return b.DataValue - a.DataValue;
+            });
+            var cleaned = (cleanArray(sorted));
+            var stateRankingName = $scope.stateTitle;
+            $scope.incomePosition  = (cleaned.map(function(e) { return e.GeoName; }).indexOf(stateRankingName) + 1);
+            // var stateObject = cleaned[$scope.position -1].DataValue;
+            $scope.stateIncome = cleaned[$scope.incomePosition -1].DataValue;
 
+        });
+    };
 
       // national api testing
       $scope.getNationalData = function () {
@@ -148,7 +128,8 @@ app.directive('research', function () {
 
       $scope.getStateData = function () {
         getStateInfo('/query/census/state');
-        getBEADATA('/query/bea');
+        getBeaGDPData('/query/bea/gdp');
+        getPersonalIncomeData('/query/bea/personal-income');
       };
       // console.log(JSON.parse(localStorage.getItem('currentUser'))._id)
       // $scope.email = JSON.parse(localStorage.getItem('currentUser')).email;
