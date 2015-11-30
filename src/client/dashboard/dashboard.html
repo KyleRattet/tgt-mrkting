@@ -13,21 +13,19 @@
 <div class="row">
 
     <div class="col-lg-12">
-        <h3 class="page-header">Basic Metrics</h3>
+        <h3 class="page-header">State Rankings for {{stateTitle}} </h3>
     </div>
 
     <div class="col-sm-3 col-xs-6">
-        <label>Search Field</label>
-        <a href="#">
-            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-        </a>
+        <label>State GDP Ranking</label>
+
+            {{position}} out of 50
+
     </div>
 
     <div class="col-sm-3 col-xs-6">
-        <label>Search Field</label>
-        <a href="#">
-            <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-        </a>
+        <label>State GDP</label>
+            ${{stateObjectGDP | number:0}}
     </div>
 
     <div class="col-sm-3 col-xs-6">

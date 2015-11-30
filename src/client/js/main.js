@@ -38,3 +38,75 @@ $(document).on('ready', function() {
 // }
 
 
+var test = [
+  {CL_UNIT: "USD",
+  Code: "GDP_SP",
+DataValue: "199440",
+GeoFips: "01000",
+GeoName: "Alabama",
+TimePeriod: "2014",
+UNIT_MULT: "6"},
+  {CL_UNIT: "USD",
+Code: "GDP_SP",
+DataValue: "57080",
+GeoFips: "02000",
+GeoName: "Alaska",
+TimePeriod: "2014",
+UNIT_MULT: "6"
+  },
+  {
+    CL_UNIT: "USD",
+Code: "GDP_SP",
+DataValue: "284156",
+GeoFips: "04000",
+GeoName: "Arizona",
+TimePeriod: "2014",
+UNIT_MULT: "6"
+},
+{
+  CL_UNIT: "USD",
+Code: "GDP_SP",
+DataValue: "121395",
+GeoFips: "05000",
+GeoName: "Arkansas",
+TimePeriod: "2014",
+UNIT_MULT: "6",
+
+}
+
+
+];
+
+// function dynamicSort (a,b,property) {
+//    return a[property] - b[property];
+// }
+
+var sorted = test.sort(function(a, b, property) {
+    return a[property] - b[property];
+});
+function sorted (array, a, b, property) {
+  array.sort(function(a, b, property) {
+    return a[property] - b[property];
+    });
+}
+
+
+
+// var remove  = 'United States', 'Southeast', 'Far West', 'Mid East', 'Great Lakes', 'Southwest', 'Plains', 'New England', 'Rocky Mountain';
+
+
+// function remove (array) {
+//   var clean = [];
+//   for (var i = 0; i < array.length; i++) {
+//     if(array[i].GeoName === 'United States' || 'Southeast' || 'Far West' || 'Mid East' || 'Great Lakes' || 'Southwest' || 'Plains' || 'New England' || 'Rocky Moutain') {
+//       array.splice(i,1);
+//     }
+//   }
+
+//   return array;
+// }
+
+
+
+
+

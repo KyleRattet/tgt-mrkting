@@ -21,7 +21,7 @@ app.directive('nationalDiscreteBarChartData', function () {
                 },
                 duration: 500,
                 xAxis: {
-                    axisLabel: 'Age'
+                    axisLabel: 'Category'
                 },
                 yAxis: {
                     axisLabel: 'Percent of Population',

@@ -3,6 +3,8 @@ app.directive('research', function () {
     restrict: 'E',
     controller: function ($scope, $rootScope, $http, $window, httpFactory) {
 
+
+
         ///helper function to format chart data
     function formatChartData (keys, values) {
 
@@ -43,6 +45,18 @@ app.directive('research', function () {
         });
     });
         return results;
+    }
+
+    // helper function to clean BEA data
+    function cleanArray(array) {
+        var clean =[];
+        for (var i = 0; i<array.length; i++) {
+            if (array[i].GeoName != 'United States' && array[i].GeoName != 'Plains'
+                && array[i].GeoName != 'Southeast' && array[i].GeoName != 'Far West' && array[i].GeoName != 'Mideast' && array[i].GeoName != 'Great Lakes' && array[i].GeoName != 'Southwest' && array[i].GeoName != 'New England' && array[i].GeoName != 'Rocky Mountain') {
+                clean.push(array[i]);
+            }
+        }
+      return clean;
     }
 
     $scope.chartKeys = [
@@ -103,13 +117,37 @@ app.directive('research', function () {
         });
       };
 
+      getBEADATA = function (url) {
+
+        httpFactory.get(url)
+        .then(function(response){
+            var results = response.data.BEAAPI.Results.Data;
+            var sorted = results.sort(function(a, b) {
+                return b.DataValue - a.DataValue;
+            });
+            var cleaned = (cleanArray(sorted));
+            var stateRankingName = $scope.stateTitle;
+            $scope.position  = (cleaned.map(function(e) { return e.GeoName; }).indexOf(stateRankingName) + 1);
+            var stateObject = cleaned[$scope.position -1].DataValue;
+            $scope.stateObjectGDP = cleaned[$scope.position -1].DataValue;
+
+        });
+        };
+
+
+
+
+
+
       // national api testing
       $scope.getNationalData = function () {
         getNatInfo('/query/census/national');
+
       };
 
       $scope.getStateData = function () {
         getStateInfo('/query/census/state');
+        getBEADATA('/query/bea');
       };
       // console.log(JSON.parse(localStorage.getItem('currentUser'))._id)
       // $scope.email = JSON.parse(localStorage.getItem('currentUser')).email;
