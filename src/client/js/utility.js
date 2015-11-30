@@ -16,6 +16,7 @@
     //helper function to find keys for the pie chart
     function findKeys (keyArray, valueString) {
       var searchString = valueString.slice(0,9);
+      console.log(searchString, 'searchstring');
 
       var useKeys = [];
       for (var i = 0; i < keyArray.length; i++) {
@@ -26,6 +27,19 @@
 
       return useKeys;
 
+    }
+
+    //helper function for category labels
+    function getTitle (keyArray,labelArray,valueString) {
+      var searchString = valueString.slice(0,9);
+      var results = '';
+
+      for (var i = 0; i < keyArray.length; i++) {
+        if (keyArray[i][0] === searchString) {
+          results = labelArray[i];
+        }
+      }
+      return results;
     }
 
     //helper function to convert pie data into discrete bar chart data

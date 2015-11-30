@@ -3,14 +3,17 @@ app.directive('research', function () {
     restrict: 'E',
     controller: function ($scope, $rootScope, $http, $window, httpFactory) {
 
+
     $scope.chartKeys = [
         ['DP05_0004','0-5','5-9','10-14', '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
         ['DP02_0059','< 9th Grade','9th-12th No Diploma','High School Graduate', 'Some College, No Degree', 'Associates Degree', 'Bachelors Degree', 'Graduate Degree'],
         ['DP03_0052','<$10k','$15k-$25k','$25k-$35k', '$35k-$50k', '$50k-$75k', '$75k-$100k', '$100k-$150k','$150k-$200k', '$200k+'],
-        ['DP04_0080','<$50k','$50k-100k','$100k-150k', '$150k-200k', '$200k-300k', '$300k-500k', '$500k-1mm','$1mm+'],
+        ['DP04_0080','<$50k','$50k-100k','$100k-150k', '$150k-200k', '$200k-300k','$300k-500k', '$500k-1mm','$1mm+'],
         ['DP03_0004','Employed','Unemployed','Armed Forces', 'Not in Labor Force'],
         ['DP05_002','White','African American','Latino', 'Asian', 'Native Hawaiian and Other Pacific Islander', 'American Indian/Alaskan Native', 'Some Other Race']
     ];
+
+    $scope.labels = ['Age', 'Education', 'Income', 'Home Prices', 'Employment', 'Ethnicity'];
 
     getNatInfo = function (url) {
 
@@ -44,6 +47,7 @@ app.directive('research', function () {
             };
         var state = $scope.state_select;
         var keys = findKeys($scope.chartKeys, $scope.category);
+        $scope.title = getTitle($scope.chartKeys,$scope.labels, $scope.category);
         httpFactory.get(url, {params: parameters})
         .then(function(response){
             console.log(response, "state data")
@@ -80,7 +84,7 @@ app.directive('research', function () {
         };
 
     //national gdp data
-      getBeaGDPData = function (url) {
+    getBeaGDPData = function (url) {
 
         httpFactory.get(url)
         .then(function(response){
@@ -98,8 +102,8 @@ app.directive('research', function () {
                 "measures": [$scope.GDPposition],
                 "markers": [$scope.GDPposition]
             };
-            });
-            };
+        });
+    };
 
     //state gdp data
       getPersonalIncomeData = function (url) {
@@ -116,7 +120,11 @@ app.directive('research', function () {
             $scope.incomePosition  = (cleaned.map(function(e) { return e.GeoName; }).indexOf(stateRankingName) + 1);
             // var stateObject = cleaned[$scope.position -1].DataValue;
             $scope.stateIncome = cleaned[$scope.incomePosition -1].DataValue;
-
+            $scope.stateIncomeGaugeData = {
+                "ranges": [0,25,50],
+                "measures": [$scope.incomePosition],
+                "markers": [$scope.incomePosition]
+            };
         });
     };
 
