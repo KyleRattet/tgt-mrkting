@@ -117,6 +117,7 @@ app.directive('research', function () {
         });
       };
 
+    //national gdp data
       getBEADATA = function (url) {
 
         httpFactory.get(url)
