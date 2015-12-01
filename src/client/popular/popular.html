@@ -11,71 +11,101 @@
         </div>
         <!-- /.row -->
 
-        <!-- Projects Row -->
+        <!-- List Row -->
         <div class="row">
             <div class="col-md-4 portfolio-item">
-                <ol>
-                  <li ng-repeat="state in gdp">{{state.GeoName}}</li>
-                </ol>
                 <h3>
                   State GDP
                 </h3>
                 <p>List of the 10 highest GDP.</p>
+                <ol>
+                  <li ng-repeat="state in gdp">{{state.GeoName}}</li>
+                </ol>
             </div>
             <div class="col-md-4 portfolio-item">
-                <ol>
-                  <li ng-repeat="state in richest">{{state.GeoName}}</li>
-                </ol>
                 <h3>
                     Per Capita Income
                 </h3>
                 <p>List of 10 states with the highest income.</p>
+                <ol>
+                  <li ng-repeat="state in richest">{{state.GeoName}}</li>
+                </ol>
             </div>
             <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
                 <h3>
                     Housing Value
                 </h3>
                 <p>List of 10 states with the highest average housing prices.</p>
+                <ol>
+                  <li ng-repeat="state in housing">{{state[0]}}</li>
+                </ol>
             </div>
         </div>
         <!-- /.row -->
 
-
-        <!-- Projects Row -->
+        <!-- List Row -->
         <div class="row">
             <div class="col-md-4 portfolio-item">
-                <ol>
-                  <li ng-repeat="state in disposable">{{state.GeoName}}</li>
-                </ol>
                 <h3>
                     Disposable Income
                 </h3>
                 <p>List of 10 states with the highest disposable income.</p>
+                <ol>
+                  <li ng-repeat="state in disposable">{{state.GeoName}}</li>
+                </ol>
             </div>
             <div class="col-md-4 portfolio-item">
-                <ol>
-                  <li ng-repeat="state in seniors">{{state[0]}}</li>
-                </ol>
                 <h3>
                     Persons 65 Years and Over
                 </h3>
                 <p>List of states with the oldest populations.</p>
+                <ol>
+                  <li ng-repeat="state in seniors">{{state[0]}}</li>
+                </ol>
             </div>
             <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
                 <h3>
                     Bachelor's Degree or Higher
                 </h3>
                 <p>States with the most educated populations.</p>
+                <ol>
+                  <li ng-repeat="state in bachelors">{{state[0]}}</li>
+                </ol>
             </div>
         </div>
         <!-- /.row -->
 
+        <!-- List Row -->
+        <div class="row">
+            <div class="col-md-4 portfolio-item">
+                <h3>
+                    Unemployed Percentage
+                </h3>
+                <p>List of 10 states with the highest unemployment rates.</p>
+                <ol>
+                  <li ng-repeat="state in unemployed">{{state[0]}}</li>
+                </ol>
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <h3>
+                    $50-75K Income Bracket
+                </h3>
+                <p>List of states highest percent of households in $50-75k income bracket.</p>
+                <ol>
+                  <li ng-repeat="state in income">{{state[0]}}</li>
+                </ol>
+            </div>
+            <div class="col-md-4 portfolio-item">
+                <h3>
+                    Elementary School
+                </h3>
+                <p>Population 3 years and over enrolled in Elementary school (grades 1-8).</p>
+                <ol>
+                  <li ng-repeat="state in elementary">{{state[0]}}</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
 
     </div>
     <!-- /.container -->

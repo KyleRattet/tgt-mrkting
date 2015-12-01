@@ -8,71 +8,51 @@ app.directive('popular', function () {
         {name: "State GDP", value: "GDP_SP"},
         {name: "Disposable Personal Income", value: "PCDPI_SI"},
         {name: "Persons Over 65", value: "DP05_0021PE"},
+        {name: "Median Housing Value", value: "DP04_0088E"},
+        {name: "Bachelors Degree or Higher", value: "DP02_0067PE"},
+        {name: "Unemployed", value: "DP03_0005PE"},
+        {name: "Income Bracket", value: "DP03_0057PE"},
+        {name: "Elementary School", value: "DP02_0055PE"}
         ];
-
-
-
 
     // national data from BEA
     getBeaData = function (url, search, variable) {
-
-        var parameters = {
-            category: search
-        };
-
+        var parameters = {category: search};
         httpFactory.get(url, {params: parameters})
         .then(function(response){
-            console.log(response, "get bea data response");
             var results = response.data.BEAAPI.Results.Data;
             var sorted = results.sort(function(a, b) {
                 return b.DataValue - a.DataValue;
             });
             var cleaned = (cleanArray(sorted));
-          $scope[variable] = getTopTen(cleaned);
-
+            $scope[variable] = getTopTen(cleaned);
         });
 
     };
 
     //state data from CENSUS
     getCensusStateInfo = function (url, search, variable) {
-
-        var parameters = {
-          category: search
-            };
-        // var state = $scope.state_select;
-        // var keys = findKeys($scope.chartKeys, $scope.category);
-        // $scope.title = getTitle($scope.chartKeys,$scope.labels, $scope.category);
+        var parameters = { category: search };
         httpFactory.get(url, {params: parameters})
         .then(function(response){
-            console.log(response, "state data")
             var results = response.data;
-            console.log(results, 'results from old age')
             var sorted = results.sort(function(a, b) {
                 return b[1] - a[1];
             });
-            console.log(sorted, 'sorted old age data')
             var cleaned = (cleanArray(sorted));
             $scope[variable] = getTopTen(cleaned);
-            // $scope.stateTitle = response.data[1][0];
-            // $scope.stateData = response.data[1];
-
-            // $scope.statePieData = formatChartData(keys ,$scope.stateData);
-            // $scope.stateDiscreteBarData = [
-            // {
-            //     key: "Cumulative Return",
-            //     values: convertToDiscreteBarData($scope.statePieData)
-            // }
-            // ];
-
         });
     };
-
 
     getBeaData('/query/bea/popular', topCategories[0].value, 'richest');
     getBeaData('/query/bea/popular', topCategories[1].value, 'gdp');
     getBeaData('/query/bea/popular', topCategories[2].value, 'disposable');
     getCensusStateInfo('/query/census/popular', topCategories[3].value, 'seniors');
+    getCensusStateInfo('/query/census/popular', topCategories[4].value, 'housing');
+    getCensusStateInfo('/query/census/popular', topCategories[5].value, 'bachelors');
+    getCensusStateInfo('/query/census/popular', topCategories[6].value, 'unemployed');
+    getCensusStateInfo('/query/census/popular', topCategories[7].value, 'income');
+    getCensusStateInfo('/query/census/popular', topCategories[8].value, 'elementary');
     },
     templateUrl: 'popular/popular.html',
   };

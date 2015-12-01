@@ -10,7 +10,7 @@ router.get('/census/national', function(req, res, next) {
   var queryCodes = req.query.category;
   console.log(queryCodes, 'query codes');
 
-  var url = "http://api.census.gov/data/2013/acs1/profile?get=NAME,"+queryCodes+"&for=us:*&key="+CENS_id;
+  var url = "http://api.census.gov/data/2014/acs1/profile?get=NAME,"+queryCodes+"&for=us:*&key="+CENS_id;
   console.log(url, "url");
   http.get(url, function(response) {
       var body = '';
@@ -56,7 +56,7 @@ router.get('/census/popular', function(req, res, next) {
 
   var queryCodes = req.query.category;
   // var state = req.query.state;
-  var url = "http://api.census.gov/data/2013/acs1/profile?get=NAME,"+queryCodes+"&for=state&key="+CENS_id;
+  var url = "http://api.census.gov/data/2014/acs1/profile?get=NAME,"+queryCodes+"&for=state&key="+CENS_id;
   console.log(url, "url state")
   http.get(url, function(response) {
       var body = '';
