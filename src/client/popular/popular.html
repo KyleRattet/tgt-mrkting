@@ -18,9 +18,9 @@
                   <li ng-repeat="state in gdp">{{state.GeoName}}</li>
                 </ol>
                 <h3>
-                  Population
+                  State GDP
                 </h3>
-                <p>List of the 10 most densely populated states.</p>
+                <p>List of the 10 highest GDP.</p>
             </div>
             <div class="col-md-4 portfolio-item">
                 <ol>
@@ -47,18 +47,18 @@
         <!-- Projects Row -->
         <div class="row">
             <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
+                <ol>
+                  <li ng-repeat="state in disposable">{{state.GeoName}}</li>
+                </ol>
                 <h3>
                     Disposable Income
                 </h3>
                 <p>List of 10 states with the highest disposable income.</p>
             </div>
             <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
+                <ol>
+                  <li ng-repeat="state in seniors">{{state[0]}}</li>
+                </ol>
                 <h3>
                     Persons 65 Years and Over
                 </h3>

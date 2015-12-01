@@ -106,7 +106,7 @@ app.directive('research', function () {
     };
 
     //state gdp data
-      getPersonalIncomeData = function (url) {
+    getPersonalIncomeData = function (url) {
 
         httpFactory.get(url)
         .then(function(response){

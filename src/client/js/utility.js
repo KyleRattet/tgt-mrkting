@@ -59,7 +59,7 @@
         var clean =[];
         for (var i = 0; i<array.length; i++) {
             if (array[i].GeoName != 'United States' && array[i].GeoName != 'Plains'
-                && array[i].GeoName != 'Southeast' && array[i].GeoName != 'Far West' && array[i].GeoName != 'Mideast' && array[i].GeoName != 'Great Lakes' && array[i].GeoName != 'Southwest' && array[i].GeoName != 'New England' && array[i].GeoName != 'Rocky Mountain') {
+                && array[i].GeoName != 'Southeast' && array[i].GeoName != 'Far West' && array[i].GeoName != 'Mideast' && array[i].GeoName != 'Great Lakes' && array[i].GeoName != 'Southwest' && array[i].GeoName != 'New England' && array[i].GeoName != 'Rocky Mountain' && array[i][0] !== 'NAME') {
                 clean.push(array[i]);
             }
         }

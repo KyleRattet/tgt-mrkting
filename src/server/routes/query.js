@@ -51,6 +51,30 @@ router.get('/bea/popular', function(req, res, next) {
     });
 });
 
+router.get('/census/popular', function(req, res, next) {
+  console.log(req.query, "state req query server side");
+
+  var queryCodes = req.query.category;
+  // var state = req.query.state;
+  var url = "http://api.census.gov/data/2013/acs1/profile?get=NAME,"+queryCodes+"&for=state&key="+CENS_id;
+  console.log(url, "url state")
+  http.get(url, function(response) {
+      var body = '';
+
+      response.on('data', function(chunk) {
+
+        body += chunk;
+      });
+
+      response.on('end', function() {
+
+        res.send(JSON.parse(body));
+      });
+    }).on('error', function(e) {
+      console.log("Got error: " + e.message);
+    });
+
+});
 
 router.get('/bea/gdp', function(req, res, next) {
   var url = 'http://bea.gov/api/data/?UserID='+BEA_id+'-Key&method=GetData&datasetname=RegionalData&KeyCode=GDP_SP&Year=2014&GeoFips=STATE&ResultFormat=json';
