@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-md-4 portfolio-item">
                 <ol>
-                  <li ng-repeat="state in richest">{{state.GeoName}}</li>
+                  <li ng-repeat="state in gdp">{{state.GeoName}}</li>
                 </ol>
                 <h3>
                   Population
@@ -23,9 +23,9 @@
                 <p>List of the 10 most densely populated states.</p>
             </div>
             <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-                </a>
+                <ol>
+                  <li ng-repeat="state in richest">{{state.GeoName}}</li>
+                </ol>
                 <h3>
                     Per Capita Income
                 </h3>

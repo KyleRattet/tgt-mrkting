@@ -5,11 +5,12 @@ app.directive('popular', function () {
 
     var topCategories = [
         {name: "Per Capita Income", value: "PCPI_SI"},
+        {name: "State GDP", value: "GDP_SP"},
         ];
 
-    $scope.richest = [];
+    // $scope.richest = [];
     // national data
-    getBeaData = function (url, search, assignedVar) {
+    getBeaData = function (url, search, variable) {
 
         var parameters = {
             category: search
@@ -26,16 +27,19 @@ app.directive('popular', function () {
             });
             var cleaned = (cleanArray(sorted));
             console.log(cleaned, 'cleaned bea category for income');
-            $scope.richest = getTopTen(cleaned);
+            // $scope.richest = getTopTen(cleaned);
+          $scope[variable] = getTopTen(cleaned);
+           // console.log(assignedVar, 'assigned var');
+           // return assignedVar;
 
-            console.log($scope.richest, 'assigned var');
             // var stateRankingName = $scope.stateTitle;
             // $scope.position  = (cleaned.map(function(e) { return e.GeoName; }).indexOf(stateRankingName) + 1);
             // var stateObject = cleaned[$scope.position -1].DataValue;
             // $scope.stateObjectGDP = cleaned[$scope.position -1].DataValue;
 
         });
-
+        // return assignedVar;
+        // console.log(assignedVar, "assignedVar");
 
     };
 
@@ -43,7 +47,8 @@ app.directive('popular', function () {
 
 
 
-    getBeaData('/query/bea/popular', topCategories[0].value);
+    getBeaData('/query/bea/popular', topCategories[0].value, 'richest');
+    getBeaData('/query/bea/popular', topCategories[1].value, 'gdp');
 
     },
     templateUrl: 'popular/popular.html',

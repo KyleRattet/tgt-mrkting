@@ -26,5 +26,11 @@ app.factory('httpFactory', ['$http', function($http) {
     return $http.get("http://www.bea.gov/api/data/?&UserID="+id+"&method=GetData&datasetname=RegionalData&KeyCode=PCDPI_SI&GeoFIPS=STATE&Year=2012&ResultFormat=JSON&");
   };
 
+  obj.getData = function(url,payload,variable){
+    return $http.get(url, payload);;
+  };
+
+
+
   return obj;
 }]);
