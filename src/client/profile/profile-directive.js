@@ -4,7 +4,8 @@ app.directive('profile', function () {
     controller: function ($scope, $rootScope, $http, $window) {
       $scope.email = JSON.parse(localStorage.getItem('currentUser')).email;
       $scope.newEmail = $scope.email;
-
+      $scope.name = JSON.parse(localStorage.getItem('currentUser')).name;
+      $scope.queries = JSON.parse(localStorage.getItem('currentUser')).queries;
       $scope.updateUser = function(email, password) {
         $scope.message = "";
         // create payload

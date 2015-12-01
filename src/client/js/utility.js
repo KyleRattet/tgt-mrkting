@@ -75,3 +75,30 @@
 
         return results;
     }
+
+//     //find index of for saved queries
+//     function findIndex (name, array) {
+//       var index = '';
+
+//       for (var i = 0; i < array.length; i++) {
+//         if (array[i].name === name) {
+//           index = i;
+//         }
+//       }
+//       return index;
+//     }
+
+// var test = [
+//   {_id: "565ddfd810a5bcb2c14661f7",
+//     category: "DP05_0072PE,DP05_0073PE,DP05_0066PE,DP05_0075PE,DP05_0076PE,DP05_0074PE,DP05_0077PE",
+//     name: "Ethnicity for Colorado",
+//     state: "08"},
+//   {_id: "565ddadddb98e7b3b8f8b387",
+//     category: "DP02_0059PE,DP02_0060PE,DP02_0061PE,DP02_0062PE,DP02_0063PE,DP02_0064PE,DP02_0065PE",
+//     name: "Education for the state of california",
+//     state: "06"}
+// ];
+
+
+
+

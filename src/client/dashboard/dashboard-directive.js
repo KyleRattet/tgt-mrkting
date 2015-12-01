@@ -3,6 +3,8 @@ app.directive('dashboard', function () {
     restrict: 'E',
     controller: function ($scope, $http, $auth, $location, $window, $rootScope, httpFactory) {
 
+
+
     },
     templateUrl: 'dashboard/dashboard.html',
   };

@@ -29,14 +29,20 @@
   <h2>Add Query Test</h2>
   <form ng-submit="addQuery(query)">
     <div class="form-group">
-      <input type="text" class="form-control" ng-model="queryName" placehold="query name" required>
+      <input type="text" class="form-control" ng-model="queryName" placeholder="query name" required>
     </div>
-    <div class="form-group">
-      <input type="text" class="form-control" ng-model="queryUrl" required placeholder="query url">
-    </div>
-    <button type="submit" class="btn btn-default btn-block">Add Query</button>
+    <button type="submit" class="btn btn-default btn-block">Save Query</button>
   </form>
 </div>
+
+<div>
+  <h2>Retrieve and Run Query</h2>
+    <button type="submit" class="btn btn-success" ng-click="retrieve()">Retrieve and Run Query</button>
+</div>
+
+<ol>
+<li ng-repeat="query in queries" ng-click="run(query.name)">Query Name: {{query.name}} Query Category: {{query.category}} Query State: {{query.state}}</li>
+</ol>
 
 <button class="btn btn-danger" ng-click="getNationalData(); getStateData()">Get Data</button>
 
