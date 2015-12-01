@@ -41,6 +41,7 @@ app.directive('popular', function () {
             });
             var cleaned = (cleanArray(sorted));
             $scope[variable] = getTopTen(cleaned);
+            // console.log($scope[variable])
         });
     };
 

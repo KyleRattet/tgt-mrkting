@@ -35,13 +35,13 @@
   </form>
 </div>
 
-<div>
-  <h2>Retrieve and Run Query</h2>
+<div ng-if="isAuthenticated()">
+  <h2>Retrieve Query</h2>
     <button type="submit" class="btn btn-success" ng-click="retrieve()">Retrieve and Run Query</button>
 </div>
 
 <ol>
-<li ng-repeat="query in queries" ng-click="run(query.name)">Query Name: {{query.name}} Query Category: {{query.category}} Query State: {{query.state}}</li>
+  <li ng-repeat="query in queries" ng-click="run(query.name)">Query Name: {{query.name}} Query Category: {{query.category}} Query State: {{query.state}}</li>
 </ol>
 
 <button class="btn btn-danger" ng-click="getNationalData(); getStateData()">Get Data</button>
