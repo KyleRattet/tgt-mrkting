@@ -10,7 +10,7 @@ app.directive('research', function () {
         ['DP03_0052','<$10k','$15k-$25k','$25k-$35k', '$35k-$50k', '$50k-$75k', '$75k-$100k', '$100k-$150k','$150k-$200k', '$200k+'],
         ['DP04_0080','<$50k','$50k-100k','$100k-150k', '$150k-200k', '$200k-300k','$300k-500k', '$500k-1mm','$1mm+'],
         ['DP03_0004','Employed','Unemployed','Armed Forces', 'Not in Labor Force'],
-        ['DP05_002','White','African American','Latino', 'Asian', 'Native Hawaiian and Other Pacific Islander', 'American Indian/Alaskan Native', 'Some Other Race']
+        ['DP05_0072','White','African American','Latino', 'Asian', 'Native Hawaiian and Other Pacific Islander', 'American Indian/Alaskan Native', 'Some Other Race']
     ];
 
     $scope.labels = ['Age', 'Education', 'Income', 'Home Prices', 'Employment', 'Ethnicity'];
@@ -66,22 +66,22 @@ app.directive('research', function () {
     };
 
     //national gdp data
-    getBeaGDPDATA = function (url) {
+    // getBeaGDPDATA = function (url) {
 
-        httpFactory.get(url)
-        .then(function(response){
-            var results = response.data.BEAAPI.Results.Data;
-            var sorted = results.sort(function(a, b) {
-                return b.DataValue - a.DataValue;
-            });
-            var cleaned = (cleanArray(sorted));
-            var stateRankingName = $scope.stateTitle;
-            $scope.position  = (cleaned.map(function(e) { return e.GeoName; }).indexOf(stateRankingName) + 1);
-            var stateObject = cleaned[$scope.position -1].DataValue;
-            $scope.stateObjectGDP = cleaned[$scope.position -1].DataValue;
+    //     httpFactory.get(url)
+    //     .then(function(response){
+    //         var results = response.data.BEAAPI.Results.Data;
+    //         var sorted = results.sort(function(a, b) {
+    //             return b.DataValue - a.DataValue;
+    //         });
+    //         var cleaned = (cleanArray(sorted));
+    //         var stateRankingName = $scope.stateTitle;
+    //         $scope.position  = (cleaned.map(function(e) { return e.GeoName; }).indexOf(stateRankingName) + 1);
+    //         var stateObject = cleaned[$scope.position -1].DataValue;
+    //         $scope.stateObjectGDP = cleaned[$scope.position -1].DataValue;
 
-        });
-        };
+    //     });
+    // };
 
     //national gdp data
     getBeaGDPData = function (url) {

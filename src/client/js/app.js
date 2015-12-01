@@ -23,6 +23,9 @@ app.config(function($routeProvider, $authProvider, $locationProvider) {
     .when('/research', {
       templateUrl: 'partials/research.html'
     })
+    .when('/popular', {
+      templateUrl: 'partials/popular.html'
+    })
     .when('/login', {
       templateUrl: 'partials/login.html'
     })

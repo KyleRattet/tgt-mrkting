@@ -65,3 +65,13 @@
         }
       return clean;
     }
+
+    //helpful function to get top 10 lists
+    function getTopTen (array) {
+        var results = [];
+        for (var i = 0; i < 10; i++) {
+            results.push(array[i]);
+        }
+
+        return results;
+    }

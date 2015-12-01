@@ -30,6 +30,28 @@ router.get('/census/national', function(req, res, next) {
 
 });
 
+router.get('/bea/popular', function(req, res, next) {
+  var queryCodes = req.query.category;
+  console.log(queryCodes, "req query")
+  var url = 'http://bea.gov/api/data/?UserID='+BEA_id+'-Key&method=GetData&datasetname=RegionalData&KeyCode='+queryCodes+'&Year=2014&GeoFips=STATE&ResultFormat=json';
+  http.get(url, function(response) {
+      var body = '';
+
+      response.on('data', function(chunk) {
+
+        body += chunk;
+      });
+
+      response.on('end', function() {
+
+        res.send(JSON.parse(body));
+      });
+    }).on('error', function(e) {
+      console.log("Got error: " + e.message);
+    });
+});
+
+
 router.get('/bea/gdp', function(req, res, next) {
   var url = 'http://bea.gov/api/data/?UserID='+BEA_id+'-Key&method=GetData&datasetname=RegionalData&KeyCode=GDP_SP&Year=2014&GeoFips=STATE&ResultFormat=json';
   http.get(url, function(response) {
