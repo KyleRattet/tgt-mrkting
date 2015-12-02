@@ -36,8 +36,10 @@
     </div>
 
     <div class="col-sm-3 col-xs-6">
-        <label>State Personal Income $</label>
-        <p>${{stateIncome | number:0}}</p>
+        <label>Total Employment (Full and Part Time)</label>
+        <p>Rank: {{jobPosition}}</p>
+        <p>Jobs: {{stateJob | number}}</p>
+        <state-gauge-jobs-chart-data></state-gauge-jobs-chart-data>
     </div>
 
 </div>

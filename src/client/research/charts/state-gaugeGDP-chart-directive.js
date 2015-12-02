@@ -8,7 +8,7 @@ app.directive('stateGaugeGdpChartData', function () {
                 type: 'bulletChart',
                 duration: 500,
                 width: 280,
-                height: 70,
+                height: 80,
                 orient: 'left',
                 margin: {
                     left: 5,

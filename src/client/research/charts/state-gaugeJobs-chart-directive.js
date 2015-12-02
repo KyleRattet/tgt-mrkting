@@ -1,9 +1,9 @@
-app.directive('stateGaugeIncomeChartData', function () {
+app.directive('stateGaugeJobsChartData', function () {
   return {
     restrict: 'E',
     controller: function ($scope, $rootScope, $http, $window, httpFactory) {
 
-    $scope.stateIncomeGaugeOptions = {
+    $scope.stateJobGaugeOptions = {
             chart: {
                 type: 'bulletChart',
                 duration: 500,
@@ -19,6 +19,6 @@ app.directive('stateGaugeIncomeChartData', function () {
         };
 
     },
-    templateUrl: 'research/charts/state-gaugeIncome-chart.html',
+    templateUrl: 'research/charts/state-gaugeJobs-chart.html',
   };
 });

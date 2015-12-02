@@ -26,7 +26,7 @@ app.directive('research', function () {
             $scope.Data = formatChartData(keys ,$scope.usData);
             $scope.nationalDiscreteBarData = [
                 {
-                    key: "Cumulative Return",
+                    key: "Categoy",
                     values: convertToDiscreteBarData($scope.Data)
                 }
                 ];
@@ -115,7 +115,6 @@ app.directive('research', function () {
     getDisposableData = function (url) {
         httpFactory.get(url)
         .then(function(response){
-            console.log(response, "disposable");
             var results = response.data.BEAAPI.Results.Data;
             var sorted = results.sort(function(a, b) {
                 return b.DataValue - a.DataValue;
@@ -132,6 +131,25 @@ app.directive('research', function () {
         });
     };
 
+    getJobData = function (url) {
+        httpFactory.get(url)
+        .then(function(response){
+            var results = response.data.BEAAPI.Results.Data;
+            var sorted = results.sort(function(a, b) {
+                return b.DataValue - a.DataValue;
+            });
+            var cleaned = (cleanArray(sorted));
+            var stateRankingName = $scope.stateTitle;
+            $scope.jobPosition  = (cleaned.map(function(e) { return e.GeoName; }).indexOf(stateRankingName) + 1);
+            $scope.stateJob = cleaned[$scope.jobPosition -1].DataValue;
+            $scope.stateJobGaugeData = {
+                "ranges": [0,25,50],
+                "measures": [$scope.jobPosition],
+                "markers": [$scope.jobPosition]
+            };
+        });
+    };
+
     $scope.getNationalData = function () {
         getNatInfo('/query/census/national');
       };
@@ -144,6 +162,7 @@ app.directive('research', function () {
         getPersonalIncomeData('/query/bea/personal-income');
         getPopulationData('/query/bea/population');
         getDisposableData('/query/bea/population');
+        getJobData('/query/bea/job');
     };
 
     $scope.retrieve = function () {

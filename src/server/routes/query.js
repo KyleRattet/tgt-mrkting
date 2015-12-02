@@ -133,6 +133,24 @@ router.get('/bea/population', function(req, res, next) {
     });
 });
 
+router.get('/bea/job', function(req, res, next) {
+  var url = 'http://bea.gov/api/data/?UserID='+BEA_id+'-Key&method=GetData&datasetname=RegionalData&KeyCode=EMP000_SI&Year=2014&GeoFips=STATE&ResultFormat=json';
+  http.get(url, function(response) {
+      var body = '';
+
+      response.on('data', function(chunk) {
+
+        body += chunk;
+      });
+
+      response.on('end', function() {
+
+        res.send(JSON.parse(body));
+      });
+    }).on('error', function(e) {
+      console.log("Got error: " + e.message);
+    });
+});
 
 router.get('/census/state', function(req, res, next) {
   console.log(req.query, "state req query server side");

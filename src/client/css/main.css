@@ -42,7 +42,7 @@ a {
 #page-content-wrapper {
     width: 100%;
     position: absolute;
-    padding: 15px;
+    padding: 10px;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -135,7 +135,9 @@ a {
     -o-background-size: cover;
 }
 
-
+.panel-height {
+       height: 195px;
+}
 
 /*video#bg-video {
   background: url(first-frame.png) no-repeat;
