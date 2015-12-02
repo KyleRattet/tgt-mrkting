@@ -8,9 +8,6 @@
     </div>
   </div>
 
-
-
-
 <div class="row">
 
     <div class="col-lg-12">
@@ -19,26 +16,28 @@
 
     <div class="col-sm-3 col-xs-6">
         <label>State GDP Ranking</label>
-
-            {{GDPposition}} out of 50
-            <state-gauge-gdp-chart-data></state-gauge-gdp-chart-data>
+        <p>Rank: {{GDPposition}}</p>
+        <p>GDP (in millions): ${{stateGDP | number:0}}<p>
+        <state-gauge-gdp-chart-data></state-gauge-gdp-chart-data>
     </div>
 
     <div class="col-sm-3 col-xs-6">
-        <label>State  ($ in Millions)</label>
-            ${{stateGDP | number:0}}
-
+        <label>State Population</label>
+        <p>Rank: {{populationPosition}}</p>
+        <p>Population: {{statePopulation | number:0}}</p>
+        <state-gauge-population-chart-data></state-gauge-population-chart-data>
     </div>
 
     <div class="col-sm-3 col-xs-6">
         <label>State Personal Income Ranking</label>
-            {{incomePosition}} out of 50
-            <state-gauge-income-chart-data></state-gauge-income-chart-data>
+        <p>Rank: {{incomePosition}}</p>
+        <p>Income: ${{stateIncome | number:0}}</p>
+        <state-gauge-income-chart-data></state-gauge-income-chart-data>
     </div>
 
     <div class="col-sm-3 col-xs-6">
         <label>State Personal Income $</label>
-        ${{stateIncome | number:0}}
+        <p>${{stateIncome | number:0}}</p>
     </div>
 
 </div>

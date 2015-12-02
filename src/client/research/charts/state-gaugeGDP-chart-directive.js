@@ -6,8 +6,15 @@ app.directive('stateGaugeGdpChartData', function () {
     $scope.stateGDPGaugeOptions = {
             chart: {
                 type: 'bulletChart',
-                duration: 500
-            }
+                duration: 500,
+                width: 280,
+                height: 70,
+                orient: 'left',
+                margin: {
+                    left: 5,
+                    right:10
+                }
+            },
         };
 
     },
