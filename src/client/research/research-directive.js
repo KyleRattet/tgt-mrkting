@@ -184,8 +184,7 @@ app.directive('research', function () {
     restrict: 'E',
     controller: function ($scope, $rootScope, $http, $window, httpFactory, $route) {
 
-    // //query data object
-    $scope.query = {};
+    // $scope.state_select = option.value="0";
 
     $scope.chartKeys = [
         ['DP05_0004','0-5','5-9','10-14', '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
