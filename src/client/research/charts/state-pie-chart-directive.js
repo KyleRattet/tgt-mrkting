@@ -29,6 +29,20 @@ app.directive('statePieChartData', function () {
                 text: 'State Pie Chart'
             }
         };
+        $scope.searchAgain = function  () {
+        $scope.dashboard = false;
+        $scope.research = false;
+        $scope.usData='';
+        $scope.Data='';
+        $scope.nationalDiscreteBarData='';
+        $scope.stateTitle='';
+        $scope.stateData='';
+        $scope.statePieData='';
+        $scope.stateDiscreteBarData='';
+        $scope.category='';
+        $scope.state_select='';
+
+      };
 
     },
     templateUrl: 'research/charts/state-pie-chart.html',

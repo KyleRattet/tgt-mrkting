@@ -1,4 +1,4 @@
-<div class="container">
+<div ng-show="dashboard" class="container">
   <div class="row">
     <div class="center-form panel">
         <div class="panel-body">
@@ -7,9 +7,9 @@
         </div>
     </div>
   </div>
-</div
 
-<div class="container">
+
+
 
 <div class="row">
 
@@ -78,7 +78,6 @@
         <div>
           <state-discrete-bar-chart-data></state-discrete-bar-chart-data>
         </div>
-
     </div>
 
     <div class="col-md-6 col-xs-12">
@@ -91,4 +90,22 @@
 
 </div>
 
+<div>
+  <h2>Add Query Test</h2>
+  <form ng-submit="addQuery(query)">
+    <div class="form-group">
+      <input type="text" class="form-control" ng-model="queryName" placeholder="query name" required>
+    </div>
+    <button type="submit" class="btn btn-default btn-block">Save Query</button>
+  </form>
 </div>
+
+
+<button class="btn btn-danger" ng-click="searchAgain(); reloadRoute()">Search Again</button>
+
+
+</div>
+
+
+
+

@@ -1,4 +1,4 @@
-<div class="container">
+<div ng-hide="research" class="container">
   <div class="row">
     <div class="center-form panel">
         <div class="panel-body">
@@ -6,9 +6,7 @@
         </div>
     </div>
   </div>
-</div>
 
-<div class="container">
 
   <category-data></category-data>
   <state-code-data></state-code-data>
@@ -26,24 +24,21 @@
 
 
 <div>
-  <h2>Add Query Test</h2>
-  <form ng-submit="addQuery(query)">
-    <div class="form-group">
-      <input type="text" class="form-control" ng-model="queryName" placeholder="query name" required>
-    </div>
-    <button type="submit" class="btn btn-default btn-block">Save Query</button>
-  </form>
-</div>
 
 <div ng-if="isAuthenticated()">
   <h2>Retrieve Query</h2>
     <button type="submit" class="btn btn-success" ng-click="retrieve()">Retrieve and Run Query</button>
+
+  <ol>
+   <li ng-repeat="query in queries" ng-click="run(query.name)">Query Name: {{query.name}} Query Category: {{query.category}} Query State: {{query.state}}</li>
+  </ol>
 </div>
 
-<ol>
-  <li ng-repeat="query in queries" ng-click="run(query.name)">Query Name: {{query.name}} Query Category: {{query.category}} Query State: {{query.state}}</li>
-</ol>
+
 
 <button class="btn btn-danger" ng-click="getNationalData(); getStateData()">Get Data</button>
+
+</div>
+
 
 </div>
