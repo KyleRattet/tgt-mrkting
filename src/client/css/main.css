@@ -7,6 +7,63 @@ a {
   color: #00B7FF;
 }
 
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: gray;
+    color: #ffffff;
+}
+
+.panel-heading {
+     background-color: gray !important;
+}
+
+.panel {
+  border: 1px solid gray !important;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.btn.outline {
+    background: none;
+    padding: 12px 22px;
+}
+
+.login {
+    padding:5px;
+}
+
+/*.btn-primary.outline {
+    border: 2px solid gray;
+    color: gray;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: gray;
+    border-color: gray;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: gray;
+    color: gray;
+    box-shadow: none;
+}*/
 
 #wrapper {
     padding-left: 0;
@@ -138,6 +195,23 @@ a {
 .panel-height {
        height: 195px;
 }
+
+.portfolio-item {
+    border-radius: 25px;
+    padding: 20px;
+    border: 2px solid black;
+    width: 370px;
+    margin:5px;
+}
+/*.business-header {
+    height: 400px;
+    background: url('/images/target.jpg') center center no-repeat scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+
+}*/
 
 /*video#bg-video {
   background: url(first-frame.png) no-repeat;

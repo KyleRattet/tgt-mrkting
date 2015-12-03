@@ -179,6 +179,9 @@ app.directive('research', function () {
         getPersonalIncomeData('/query/bea/personal-income');
         getStateInfo('/query/census/state');
         getNatInfo('/query/census/national');
+        getPopulationData('/query/bea/population');
+        getDisposableData('/query/bea/population');
+        getJobData('/query/bea/job')
     };
 
 

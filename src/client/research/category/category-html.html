@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title">Step 1: Select A Category</h3>
   </div>
@@ -10,7 +10,7 @@
         </label>
   </div> -->
 
-  <select ng-model="category" class="form-control">
+  <select ng-model="category" class="form-control" required>
       <option value="">---Select Category---</option>
       <option ng-repeat="category in categories | orderBy: 'label'" value="{{category.value}}">{{category.label}}</option>
   </select>
