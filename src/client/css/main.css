@@ -20,20 +20,22 @@ a {
 }
 
 .btn-primary {
-    background: gray;
-    color: #ffffff;
+    background: #527CA6;
+    color: #EEEEEE;
 }
 
 .panel-heading {
-     background-color: gray !important;
+     background-color: #527CA6 !important;
+     color: #EEEEEE!important;
 }
 
 .panel {
-  border: 1px solid gray !important;
+  border: 1px solid #FFD24D !important;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
+    background: #FF5C26;
+    color: #EEEEEE;
 }
 
 .btn-primary:active, .btn-primary.active {
@@ -185,7 +187,7 @@ a {
 
 .business-header {
     height: 400px;
-    background: url('http://placehold.it/1920x400') center center no-repeat scroll;
+    background: url('/images/bullseye.png') center center no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

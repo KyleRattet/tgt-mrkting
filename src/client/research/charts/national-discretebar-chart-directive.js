@@ -28,7 +28,7 @@ app.directive('nationalDiscreteBarChartData', function () {
                     axisLabelDistance: -10
                 },
                 forceY: [0,30],
-
+                color: ['#527CA6','#FF5C26','#FFD24D','#444444','#EEEEEE', '#C7A0FF', '#D96D00']
             },
             title: {
                 enable: true,

@@ -1,24 +1,67 @@
-<h1>Welcome, <em>{{email}}</em>!</h1>
+<div class="container">
 
-<hr><br>
+<div class="row">
+
+<div class="col-md-4 col-md-offset-4">
+<!-- <h1 class="text-center">Login</h1> -->
+
+  <div class="panel panel-primary">
+  <div class="panel-heading"><h1>Welcome, <em>{{name}}</em>!</h1></div>
+  <div class="panel-body">
+  </div>
+
+  <div class="login">
+
+<!-- <h1>Welcome, <em>{{name}}</em>!</h1> -->
+
+<!-- <hr><br> -->
 
 <div ng-if="message">
   <h3>{{message}}</h3>
 </div>
 
 <div>
-  <h2>Update Email</h2>
+  <h3>Update Email</h3>
   <form ng-submit="updateUser(newEmail)">
     <div class="form-group">
       <input type="email" class="form-control" ng-model="newEmail" required>
     </div>
-    <button type="submit" class="btn btn-default btn-block">Update</button>
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Update</button>
   </form>
 </div>
 
-<h1>Testing Out Saved Queries for {{name}}</h1>
+<table class="table table-striped table-bordered table-condensed text-left">
+                    <caption class="text-center"><h3>Saved Queries</h3></caption>
+                    <thead class="text-center">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="query in queries">
+                            <th>{{$index + 1}}</th>
+                            <td>{{query.name}}</td>
+                            <td>Date placeholder</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+<!-- <h1>Testing Out Saved Queries for {{name}}</h1> -->
 
 
-<ol>
+<!-- <ol>
   <li ng-repeat="query in queries">Query Name: {{query.name}}</li>
-</ol>
+</ol> -->
+
+
+ </div>
+
+  </div>
+
+</div>
+</div>
+
+
+</div>
