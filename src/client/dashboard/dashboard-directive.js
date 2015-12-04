@@ -7,6 +7,7 @@ app.directive('dashboard', function () {
     $scope.addQuery = function(email, password) {
         $scope.message = "";
         var payload = {};
+        payload.date = new Date();
         payload.name = $scope.queryName;
         console.log($scope.queryName, 'payload query name');
         payload.category = $scope.category;

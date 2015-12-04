@@ -189,6 +189,7 @@ app.directive('research', function () {
     };
 
 
+
     $scope.reloadRoute = function() {
         $route.reload();
     };

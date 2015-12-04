@@ -27,7 +27,8 @@ var User = new Schema({
   queries: [{
     name: String,
     category: String,
-    state: String
+    state: String,
+    date: String
   }
   ]
 });

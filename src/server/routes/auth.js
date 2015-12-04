@@ -135,7 +135,8 @@ router.put('/addQuery', ensureAuthenticated, function(req, res) {
     }
     var newQuery = {name: req.body.name,
                     category: req.body.category,
-                    state: req.body.state
+                    state: req.body.state,
+                    date: req.body.date
                };
     console.log(newQuery);
     user.queries.push(newQuery);

@@ -6,7 +6,6 @@ app.directive('sideNavBar', function () {
         return $auth.isAuthenticated();
       };
 
-      console.log($auth.isAuthenticated())
 
       $scope.logout = function() {
         $auth.logout();
