@@ -7,7 +7,7 @@ app.directive('stateGaugeJobsChartData', function () {
             chart: {
                 type: 'bulletChart',
                 duration: 500,
-                width: 280,
+                width: 250,
                 height: 70,
                 orient: 'left',
                 margin: {

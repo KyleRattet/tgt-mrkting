@@ -7,11 +7,11 @@ app.directive('research', function () {
 
     $scope.chartKeys = [
         ['DP05_0004','0-5','5-9','10-14', '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
-        ['DP02_0059','< 9th Grade','9th-12th No Diploma','High School Graduate', 'Some College, No Degree', 'Associates Degree', 'Bachelors Degree', 'Graduate Degree'],
+        ['DP02_0059','< 9th Grade','9th-12th','High School', 'Some College', 'Associates Degree', 'Bachelors Degree', 'Graduate Degree'],
         ['DP03_0052','<$10k','$15k-$25k','$25k-$35k', '$35k-$50k', '$50k-$75k', '$75k-$100k', '$100k-$150k','$150k-$200k', '$200k+'],
         ['DP04_0080','<$50k','$50k-100k','$100k-150k', '$150k-200k', '$200k-300k','$300k-500k', '$500k-1mm','$1mm+'],
         ['DP03_0004','Employed','Unemployed','Armed Forces', 'Not in Labor Force'],
-        ['DP05_0072','White','African American','Latino', 'Asian', 'Native Hawaiian and Other Pacific Islander', 'American Indian/Alaskan Native', 'Some Other Race']
+        ['DP05_0072','White','African American','Latino', 'Asian', 'Native Hawaiian', 'American Indian', 'Other']
     ];
 
     $scope.labels = ['Age', 'Education', 'Income', 'Home Prices', 'Employment', 'Ethnicity'];

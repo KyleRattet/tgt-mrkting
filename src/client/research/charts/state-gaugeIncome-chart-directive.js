@@ -4,10 +4,10 @@ app.directive('stateGaugeIncomeChartData', function () {
     controller: function ($scope, $rootScope, $http, $window, httpFactory) {
 
     $scope.stateIncomeGaugeOptions = {
-            chart: {
+           chart: {
                 type: 'bulletChart',
                 duration: 500,
-                width: 280,
+                width: 250,
                 height: 70,
                 orient: 'left',
                 margin: {
