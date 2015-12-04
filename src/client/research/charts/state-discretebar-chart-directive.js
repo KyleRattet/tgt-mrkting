@@ -32,10 +32,6 @@ app.directive('stateDiscreteBarChartData', function () {
                 forceY: [0,30],
                 color: ['#527CA6','#FF5C26','#FFD24D','#444444','#CACACA', '#B23738','#2C3E50', '#D96D00','#DDB643']
             },
-            title: {
-                enable: true,
-                text: 'State Discrete Bar'
-            }
         };
     },
     templateUrl: 'research/charts/state-discretebar-chart.html',

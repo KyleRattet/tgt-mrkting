@@ -86,6 +86,10 @@ a {
     padding:5px;
 }
 
+.nv-legend {
+    text-align: center
+}
+
 /*.btn-primary.outline {
     border: 2px solid gray;
     color: gray;

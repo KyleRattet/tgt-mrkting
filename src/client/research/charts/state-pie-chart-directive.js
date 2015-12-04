@@ -17,17 +17,13 @@ app.directive('statePieChartData', function () {
                 legend: {
                     margin: {
                         top: 5,
-                        right: 35,
+                        right: 5,
                         bottom: 5,
-                        left: 0
+                        left: 5
                     }
                 },
                 color: ['#527CA6','#FF5C26','#FFD24D','#444444','#CACACA', '#B23738','#2C3E50', '#D96D00','#DDB643']
             },
-            title: {
-                enable: true,
-                text: 'State Pie Chart'
-            }
         };
         $scope.searchAgain = function  () {
         $scope.dashboard = false;

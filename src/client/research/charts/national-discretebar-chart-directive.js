@@ -32,15 +32,8 @@ app.directive('nationalDiscreteBarChartData', function () {
                 },
                 forceY: [0,30],
                 color: ['#527CA6','#FF5C26','#FFD24D','#444444','#CACACA', '#B23738','#2C3E50', '#D96D00','#DDB643']
-                // staggerLabels: true,
-
 
             },
-            // rotateLabels: -90,
-            title: {
-                enable: true,
-                text: 'National Discrete Bar'
-            }
         };
 
     },

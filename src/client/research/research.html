@@ -27,16 +27,6 @@
 
 <br>
 
-<!-- <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Compare</h3>
-  </div>
-  <div class="panel-body">
-    This vs. that choice here
-  </div>
-</div> -->
-
-
 
 <div>
 
@@ -44,34 +34,31 @@
 
 
 <div class="col-md-offset-3 col-md-6 col-xs-12">
-                <div class="panel panel-primary">
-                <div class="panel-heading"><h3>Saved Queries</h3></div>
-                <div class="panel-body">
-                </div>
-<table class="table table-striped table-bordered table-condensed text-center">
-                    <thead class="text-center">
-                        <tr class="text-center">
-                            <th class="text-center">#</th>
-                            <th class="text-center">Refresh</th>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="query in queries">
-                            <th>{{$index + 1}}</th>
-                            <td><button ng-click="run(query.name)" class="  btn-sm btn-primary "><i class="fa fa-refresh"></i> Refresh</button>
-                            </td>
-                            <td>{{query.name}}</td>
-                            <td>{{query.date | date : 'medium'}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h3>Saved Queries</h3></div>
+            <div class="panel-body">
+            </div>
+    <table class="table table-striped table-bordered table-condensed text-center">
+          <thead class="text-center">
+              <tr class="text-center">
+                  <th class="text-center">#</th>
+                  <th class="text-center">Refresh</th>
+                  <th class="text-center">Name</th>
+                  <th class="text-center">Date</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="query in queries">
+                    <th>{{$index + 1}}</th>
+                    <td><button ng-click="run(query.name)" class="  btn-sm btn-primary "><i class="fa fa-refresh"></i> Refresh</button></td>
+                    <td>{{query.name}}</td>
+                    <td>{{query.date | date : 'medium'}}</td>
+                </tr>
+          </tbody>
+      </table>
+    </div>
 
 </div>
-
-
 
 </div>
 

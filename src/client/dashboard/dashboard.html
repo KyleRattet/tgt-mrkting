@@ -1,12 +1,4 @@
 <div ng-show="dashboard" class="container">
-<!--   <div class="row">
-    <div class="center-form panel">
-        <div class="panel-body">
-          <h2 class="text-center">Data Dashboard Category {{title}}</h2>
-          <h3 class="text-center">You are viewing results on {{title}} for the state of {{stateTitle}}.</h3>
-        </div>
-    </div>
-  </div> -->
 
   <!-- Page Header -->
         <div class="row">
@@ -42,13 +34,6 @@
         </div>
     </div>
 
-   <!--  <div class="col-sm-3 col-xs-6">
-        <label>State Population</label>
-        <p>Rank: {{populationPosition}}</p>
-        <p>Population: {{statePopulation | number:0}}</p>
-        <state-gauge-population-chart-data></state-gauge-population-chart-data>
-    </div> -->
-
     <div class="col-sm-3 col-xs-6">
         <div class="panel panel-primary">
             <div class="panel-heading"><h4>State Personal Income Ranking</h4></div>
@@ -58,12 +43,6 @@
         </div>
     </div>
 
-    <!-- <div class="col-sm-3 col-xs-6">
-        <label>State Personal Income Ranking</label>
-        <p>Rank: {{incomePosition}}</p>
-        <p>Income: ${{stateIncome | number:0}}</p>
-        <state-gauge-income-chart-data></state-gauge-income-chart-data>
-    </div> -->
     <div class="col-sm-3 col-xs-6">
         <div class="panel panel-primary">
             <div class="panel-heading"><h4>Total Employment</h4></div>
@@ -73,78 +52,75 @@
         </div>
     </div>
 
-    <!-- <div class="col-sm-3 col-xs-6">
-        <label>Total Employment</label>
-        <p>Rank: {{jobPosition}}</p>
-        <p>Jobs: {{stateJob | number}}</p>
-        <state-gauge-jobs-chart-data></state-gauge-jobs-chart-data>
-    </div> -->
-
-    </div>
-    </div>
     </div>
     </div>
 </div>
 
 <div class="row">
 
-    <div class="col-lg-12">
-        <h3 class="page-header">Category: {{title}}</h3>
-    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h3>{{stateTitle}} VS. Nation on {{title}}</h3></div>
+        <div class="panel-body">
 
+    <div class="row">
     <div class="col-md-6 col-xs-12">
-      <label>State Pie Data for {{stateTitle}}</label>
-
-        <div>
-          <state-pie-chart-data></state-pie-chart-data>
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h4>{{stateTitle}}</h4></div>
+            <state-pie-chart-data></state-pie-chart-data>
         </div>
     </div>
 
     <div class="col-md-6 col-xs-12">
-    <label>National Data</label>
-        <div>
-          <national-pie-chart-data></national-pie-chart-data>
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h4>Nation</h4></div>
+            <national-pie-chart-data></national-pie-chart-data>
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-6 col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h4>{{stateTitle}}</h4></div>
+            <state-discrete-bar-chart-data></state-discrete-bar-chart-data>
         </div>
     </div>
 
+    <div class="col-md-6 col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h4>Nation</h4></div>
+            <national-discrete-bar-chart-data></national-discrete-bar-chart-data>
+        </div>
+    </div>
+    </div>
 
+    </div>
+    </div>
 </div>
 
-<div class="row">
 
-    <div class="col-lg-12">
-        <h3 class="page-header">State vs. National</h3>
+<div class="row" ng-show="isAuthenticated()">
+
+<div class="col-md-offset-3 col-md-6 col-xs-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h3>Save Query</h3></div>
+            <div class="panel-body"></div>
+         <form class="login form-inline">
+            <div class="form-group">
+              <label>Query Name: </label>
+              <input type="text" class="form-control" ng-model="queryName" placeholder="Insert Query Name" required><br>
+              <br>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addQuery(query)">Save</button>
+          </form>
     </div>
-
-    <div class="col-md-6 col-xs-12">
-      <label>State Bar Chart for {{stateTitle}}</label>
-        <div>
-          <state-discrete-bar-chart-data></state-discrete-bar-chart-data>
-        </div>
-    </div>
-
-    <div class="col-md-6 col-xs-12">
-    <label>National Bar Chart</label>
-        <div>
-          <national-discrete-bar-chart-data></national-discrete-bar-chart-data>
-        </div>
-    </div>
-
-
 </div>
 
-<div ng-show="isAuthenticated()">
-  <h2>Save Query</h2>
-  <form>
-    <div class="form-group">
-      <input type="text" class="form-control" ng-model="queryName" placeholder="query name" required>
-    </div>
-    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addQuery(query); login()">Save</button>
-  </form>
 </div>
 
 <hr>
-<button class="btn btn-lg btn-primary btn-block" ng-click="searchAgain(); reloadRoute()">Search Again</button>
+<button class="btn btn-lg btn-primary btn-block" ng-click="searchAgain(); reloadRoute()">New Query</button>
 
 
 </div>
