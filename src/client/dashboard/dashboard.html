@@ -19,39 +19,71 @@
         <!-- /.row -->
 
 <div class="row">
-
-    <div class="col-lg-12">
-        <h3 class="page-header">State Rankings for {{stateTitle}} </h3>
-    </div>
-
-    <div class="col-sm-3 col-xs-6">
-        <label>State GDP Ranking</label>
-        <p>Rank: {{GDPposition}}</p>
-        <p>GDP (in millions): ${{stateGDP | number:0}}<p>
-        <state-gauge-gdp-chart-data></state-gauge-gdp-chart-data>
-    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h3>State Rankings for {{stateTitle}}</h3></div>
+        <div class="panel-body">
 
     <div class="col-sm-3 col-xs-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h4>State GDP Ranking</h4></div>
+            <p><strong>Rank:</strong> {{GDPposition}}</p>
+            <p><strong>GDP (in millions):</strong> ${{stateGDP | number:0}}<p>
+            <state-gauge-gdp-chart-data></state-gauge-gdp-chart-data>
+        </div>
+    </div>
+
+
+    <div class="col-sm-3 col-xs-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h4>State Population</h4></div>
+            <p><strong>Rank:</strong> {{populationPosition}}</p>
+            <p><strong>Population:</strong>{{statePopulation | number:0}}<p>
+            <state-gauge-population-chart-data></state-gauge-population-chart-data>
+        </div>
+    </div>
+
+   <!--  <div class="col-sm-3 col-xs-6">
         <label>State Population</label>
         <p>Rank: {{populationPosition}}</p>
         <p>Population: {{statePopulation | number:0}}</p>
         <state-gauge-population-chart-data></state-gauge-population-chart-data>
-    </div>
+    </div> -->
 
     <div class="col-sm-3 col-xs-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h4>State Personal Income Ranking</h4></div>
+            <p><strong>Rank:</strong> {{incomePosition}}</p>
+            <p><strong>Income:</strong>${{stateIncome | number:0}}<p>
+            <state-gauge-income-chart-data></state-gauge-income-chart-data>
+        </div>
+    </div>
+
+    <!-- <div class="col-sm-3 col-xs-6">
         <label>State Personal Income Ranking</label>
         <p>Rank: {{incomePosition}}</p>
         <p>Income: ${{stateIncome | number:0}}</p>
         <state-gauge-income-chart-data></state-gauge-income-chart-data>
+    </div> -->
+    <div class="col-sm-3 col-xs-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h4>Total Employment</h4></div>
+            <p><strong>Rank:</strong> {{jobPosition}}</p>
+            <p><strong>Jobs:</strong> {{stateJob | number}}<p>
+            <state-gauge-income-chart-data></state-gauge-income-chart-data>
+        </div>
     </div>
 
-    <div class="col-sm-3 col-xs-6">
+    <!-- <div class="col-sm-3 col-xs-6">
         <label>Total Employment</label>
         <p>Rank: {{jobPosition}}</p>
         <p>Jobs: {{stateJob | number}}</p>
         <state-gauge-jobs-chart-data></state-gauge-jobs-chart-data>
-    </div>
+    </div> -->
 
+    </div>
+    </div>
+    </div>
+    </div>
 </div>
 
 <div class="row">
@@ -107,7 +139,7 @@
     <div class="form-group">
       <input type="text" class="form-control" ng-model="queryName" placeholder="query name" required>
     </div>
-    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addQuery(query)">Save</button>
+    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addQuery(query); login()">Save</button>
   </form>
 </div>
 

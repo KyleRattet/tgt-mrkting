@@ -64,6 +64,7 @@ a {
 
 .panel {
   border: 1px solid #444444 !important;
+  box-shadow: 5px 5px 2px #888888;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
