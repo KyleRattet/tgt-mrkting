@@ -14,7 +14,6 @@ app.directive('nationalPieChartData', function () {
                 donutRatio:".50",
                 duration: 500,
                 labelThreshold: 0.01,
-                labelSunbeamLayout: true,
                 legend: {
                     margin: {
                         top: 5,
@@ -23,7 +22,7 @@ app.directive('nationalPieChartData', function () {
                         left: 0
                     }
                 },
-                color: ['#527CA6','#FF5C26','#FFD24D','#444444','#EEEEEE', '#C7A0FF', '#D96D00']
+                color: ['#527CA6','#FF5C26','#FFD24D','#444444','#CACACA', '#B23738','#2C3E50', '#D96D00','#DDB643']
 
             },
             title: {

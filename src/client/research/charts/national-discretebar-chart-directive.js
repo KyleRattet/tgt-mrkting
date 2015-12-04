@@ -6,11 +6,11 @@ app.directive('nationalDiscreteBarChartData', function () {
      $scope.nationalDiscreteBarOptions = {
             chart: {
                 type: 'discreteBarChart',
-                height: 450,
+                height: 500,
                 margin : {
-                    top: 20,
+                    top: 15,
                     right: 20,
-                    bottom: 50,
+                    bottom: 85,
                     left: 55
                 },
                 x: function(d){return d.label;},
@@ -21,15 +21,22 @@ app.directive('nationalDiscreteBarChartData', function () {
                 },
                 duration: 500,
                 xAxis: {
-                    axisLabel: 'Category'
+                    axisLabel: 'Category',
+                    rotateLabels:-45
+
+
                 },
                 yAxis: {
                     axisLabel: 'Percent of Population',
                     axisLabelDistance: -10
                 },
                 forceY: [0,30],
-                color: ['#527CA6','#FF5C26','#FFD24D','#444444','#EEEEEE', '#C7A0FF', '#D96D00']
+                color: ['#527CA6','#FF5C26','#FFD24D','#444444','#CACACA', '#B23738','#2C3E50', '#D96D00','#DDB643']
+                // staggerLabels: true,
+
+
             },
+            // rotateLabels: -90,
             title: {
                 enable: true,
                 text: 'National Discrete Bar'

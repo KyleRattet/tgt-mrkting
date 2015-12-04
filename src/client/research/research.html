@@ -38,7 +38,7 @@
 
 <div ng-if="isAuthenticated()">
   <h2>Retrieve Query</h2>
-    <button type="submit" class="btn btn-success" ng-click="retrieve()">Retrieve and Run Query</button>
+    <button type="submit" class="btn btn-success">Retrieve and Run Query</button>
 
   <ol>
    <li ng-repeat="query in queries" ng-click="run(query.name)">Query Name: {{query.name}} Query Category: {{query.category}} Query State: {{query.state}}</li>

@@ -46,7 +46,7 @@
     </div>
 
     <div class="col-sm-3 col-xs-6">
-        <label>Total Employment (Full and Part Time)</label>
+        <label>Total Employment</label>
         <p>Rank: {{jobPosition}}</p>
         <p>Jobs: {{stateJob | number}}</p>
         <state-gauge-jobs-chart-data></state-gauge-jobs-chart-data>
@@ -81,7 +81,7 @@
 <div class="row">
 
     <div class="col-lg-12">
-        <h3 class="page-header">Comparison</h3>
+        <h3 class="page-header">State vs. National</h3>
     </div>
 
     <div class="col-md-6 col-xs-12">
@@ -101,17 +101,17 @@
 
 </div>
 
-<div>
-  <h2>Add Query Test</h2>
-  <form ng-submit="addQuery(query)">
+<div ng-show="isAuthenticated()">
+  <h2>Save Query</h2>
+  <form>
     <div class="form-group">
       <input type="text" class="form-control" ng-model="queryName" placeholder="query name" required>
     </div>
-    <button type="submit" class="btn btn-lg btn-primary btn-block">Save Query</button>
+    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addQuery(query)">Save</button>
   </form>
 </div>
 
-
+<hr>
 <button class="btn btn-lg btn-primary btn-block" ng-click="searchAgain(); reloadRoute()">Search Again</button>
 
 

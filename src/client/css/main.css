@@ -1,7 +1,7 @@
-/*body {
-  padding: 50px;
+body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}*/
+  color:#444444;
+}
 
 a {
   color: #00B7FF;
@@ -25,12 +25,12 @@ a {
 }
 
 .panel-heading {
-     background-color: #527CA6 !important;
+     background-color: #444444 !important;
      color: #EEEEEE!important;
 }
 
 .panel {
-  border: 1px solid #FFD24D !important;
+  border: 1px solid #444444 !important;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
@@ -87,7 +87,7 @@ a {
     height: 100%;
     margin-left: -175px;
     overflow-y: auto;
-    background: #000;
+    background: #444444;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -128,7 +128,7 @@ a {
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #EEEEEE;
 }
 
 .sidebar-nav li a:hover {
@@ -149,7 +149,7 @@ a {
 }
 
 .sidebar-nav > .sidebar-brand a {
-    color: #999999;
+    color: #EEEEEE;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
@@ -185,6 +185,7 @@ a {
     }
 }
 
+
 .business-header {
     height: 400px;
     background: url('/images/bullseye.png') center center no-repeat scroll;
@@ -192,6 +193,7 @@ a {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    opacity: .4;
 }
 
 .panel-height {

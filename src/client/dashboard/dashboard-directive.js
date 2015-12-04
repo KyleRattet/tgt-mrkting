@@ -3,10 +3,12 @@ app.directive('dashboard', function () {
     restrict: 'E',
     controller: function ($scope, $http, $auth, $location, $window, $rootScope, httpFactory, $route, $routeParams) {
 
+
     $scope.addQuery = function(email, password) {
         $scope.message = "";
         var payload = {};
         payload.name = $scope.queryName;
+        console.log($scope.queryName, 'payload query name');
         payload.category = $scope.category;
         payload.state = $scope.state_select;
         payload._id = JSON.parse(localStorage.getItem('currentUser'))._id;

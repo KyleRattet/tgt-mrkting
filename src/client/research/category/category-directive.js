@@ -12,7 +12,7 @@ app.directive('categoryData', function () {
          {
           label: 'Education',
           value:'DP02_0059PE,DP02_0060PE,DP02_0061PE,DP02_0062PE,DP02_0063PE,DP02_0064PE,DP02_0065PE',
-          chartKeys: ['< 9th Grade','9th-12th No Diploma','High School Graduate', 'Some College, No Degree', 'Associates Degree', 'Bachelors Degree', 'Graduate Degree']
+          chartKeys: ['<9th Grade','9th-12th','High School', 'Some College', 'Associates Degree', 'Bachelors Degree', 'Graduate Degree']
          },
          {
           label: 'Income',
@@ -32,7 +32,7 @@ app.directive('categoryData', function () {
          {
           label: 'Ethnicity',
           value:'DP05_0072PE,DP05_0073PE,DP05_0066PE,DP05_0075PE,DP05_0076PE,DP05_0074PE,DP05_0077PE',
-          chartKeys: ['White','African American','Latino', 'Asian', 'Native Hawaiian and Other Pacific Islander', 'American Indian/Alaskan Native', 'Some Other Race']
+          chartKeys: ['White','African American','Latino', 'Asian', 'Hawaiian/Pacific Islander', 'American Indian', 'Some Other Race']
          }
       ];
     },

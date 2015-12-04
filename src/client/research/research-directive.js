@@ -1,7 +1,7 @@
 app.directive('research', function () {
   return {
     restrict: 'E',
-    controller: function ($scope, $rootScope, $http, $window, httpFactory, $route) {
+    controller: function ($scope, $rootScope, $http, $window, httpFactory, $route, $auth) {
 
     // $scope.state_select = option.value="0";
 
@@ -152,6 +152,9 @@ app.directive('research', function () {
 
     $scope.getNationalData = function () {
         getNatInfo('/query/census/national');
+        getPopulationData('/query/bea/population');
+        getDisposableData('/query/bea/population');
+        getJobData('/query/bea/job');
       };
 
     $scope.getStateData = function () {
@@ -160,14 +163,15 @@ app.directive('research', function () {
         getStateInfo('/query/census/state');
         getBeaGDPData('/query/bea/gdp');
         getPersonalIncomeData('/query/bea/personal-income');
-        getPopulationData('/query/bea/population');
-        getDisposableData('/query/bea/population');
-        getJobData('/query/bea/job');
     };
 
-    $scope.retrieve = function () {
+    function retrieve () {
+        if($auth.isAuthenticated() === true) {
         $scope.queries = JSON.parse(localStorage.getItem('currentUser')).queries;
-    };
+        }
+    }
+
+    retrieve();
 
     $scope.run = function (name) {
         $scope.dashboard = true;
@@ -175,13 +179,13 @@ app.directive('research', function () {
         $scope.index = findIndex(name ,$scope.queries);
         $scope.category = $scope.queries[$scope.index].category;
         $scope.state_select = $scope.queries[$scope.index].state;
+        getPopulationData('/query/bea/population');
+        getDisposableData('/query/bea/population');
+        getJobData('/query/bea/job');
         getBeaGDPData('/query/bea/gdp');
         getPersonalIncomeData('/query/bea/personal-income');
         getStateInfo('/query/census/state');
         getNatInfo('/query/census/national');
-        getPopulationData('/query/bea/population');
-        getDisposableData('/query/bea/population');
-        getJobData('/query/bea/job')
     };
 
 
