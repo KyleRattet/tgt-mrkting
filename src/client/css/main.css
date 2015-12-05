@@ -10,14 +10,19 @@ a {
   color: #00B7FF;
 }
 
+.my-container {
+    background-color: #444444
+}
+
 .my-container h1{
     padding: 5px;
     text-align: center;
     z-index: 2;
-    height: 200px;
+    height: 20px;
     position: relative;
-    color: #444444;
-    font-size: 70px
+    color: #EEEEEE;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 .my-container h4{
@@ -25,8 +30,9 @@ a {
     text-align: center;
     z-index: 2;
     position: relative;
-    color: #444444;
-    font-size: 35px;
+    color: #EEEEEE;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .my-container img {
@@ -68,10 +74,6 @@ a {
 
 }
 
-.steps {
-    height: 450px;
-    background-color: #eeeeee
-}
 
 #analyze {
     background-color: #eeeeee !important;
@@ -89,6 +91,22 @@ a {
 .btn.outline {
     background: none;
     padding: 12px 22px;
+}
+
+.btn-primary.outline {
+    border: 2px solid #0099cc;
+    color: #0099cc;
+    box-shadow: 1px 1px 1px 0 #888888;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #FF5C26;
+    border-color: #FF5C26;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #FF5C26;
+    color: #FF5C26;
+    box-shadow: none;
 }
 
 .login {
@@ -254,6 +272,41 @@ a {
     width: 370px;
     margin:5px;
 }
+
+/*.brand {
+        display: inherit;
+        margin: 0;
+        padding: 30px 0 10px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 5em;
+        font-weight: 700;
+        line-height: normal;
+        color: #fff;
+    }
+
+    .top-divider {
+        margin-top: 0;
+    }
+
+    .img-left {
+        float: left;
+        margin-right: 25px;
+    }
+
+    .address-bar {
+        display: inherit;
+        margin: 0;
+        padding: 0 0 40px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        text-transform: uppercase;
+        font-size: 1.25em;
+        font-weight: 400;
+        letter-spacing: 3px;
+        color: #fff;
+    }*/
 /*.business-header {
     height: 400px;
     background: url('/images/target.jpg') center center no-repeat scroll;

@@ -21,7 +21,7 @@
   <div class="col-md-6 col-xs-12">
     <state-code-data></state-code-data>
   </div>
-  <button class="btn btn-lg btn-primary" ng-click="getNationalData(); getStateData()">Run Query</button>
+  <button class="btn btn-lg btn-primary outline" ng-click="getNationalData(); getStateData()">Run Query</button>
   <br>
 </div>
 
@@ -50,7 +50,7 @@
           <tbody>
               <tr ng-repeat="query in queries">
                     <th>{{$index + 1}}</th>
-                    <td><button ng-click="run(query.name)" class="  btn-sm btn-primary "><i class="fa fa-refresh"></i> Refresh</button></td>
+                    <td><button ng-click="run(query.name)" class="btn btn-primary btn-xs outline"><i class="fa fa-refresh"></i> Refresh</button></td>
                     <td>{{query.name}}</td>
                     <td>{{query.date | date : 'medium'}}</td>
                 </tr>
