@@ -2,10 +2,11 @@
 <!-- ng-controller="navbarCtrl" -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand" ng-if="!isAuthenticated()"><a href="#/"><i class="fa fa-home"></i> Home</a></li>
-                <li class="sidebar-brand" ng-if="isAuthenticated()"><a href="#/home"><i class="fa fa-home"></i> Home</a></li>
-                <li ng-if="!isAuthenticated()"><a href="#/popular"><i class="fa fa-star"></i> Popular Metrics</a></li>
-                <li ng-if="isAuthenticated()"><a href="#/popular"><i class="fa fa-star"></i> Popular Metrics</a></li>
+                <img class="img-responsive" src="/images/bullseye.png">
+                <li ng-if="!isAuthenticated()"><a href="#/"><i class="fa fa-home"></i> Home</a></li>
+                <li ng-if="isAuthenticated()"><a href="#/home"><i class="fa fa-home"></i> Home</a></li>
+                <li ng-if="!isAuthenticated()"><a href="#/popular"><i class="fa fa-star"></i> Popular </a></li>
+                <li ng-if="isAuthenticated()"><a href="#/popular"><i class="fa fa-star"></i> Popular </a></li>
                 <li ng-if="!isAuthenticated()"><a href="#/research"><i class="fa fa-search"></i> Research</a></li>
                 <li ng-if="isAuthenticated()"><a href="#/research"><i class="fa fa-search"></i> Research</a></li>
                 <li ng-if="!isAuthenticated()"><a href="#/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
