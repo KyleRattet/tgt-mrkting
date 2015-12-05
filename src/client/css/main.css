@@ -75,7 +75,16 @@ a {
   color: #FF5C26;
   font-size: 15px;
   float:none;
-  margin-top: 0px
+  margin-top: 0px;
+  margin-bottom: 4px
+}
+
+.navbar-text .navbar-default, #user {
+  position: fixed;
+  color: #FFD24D;
+  font-size: 15px;
+  margin-left: 86%;
+  margin-top: -25px
 }
 
 .red {

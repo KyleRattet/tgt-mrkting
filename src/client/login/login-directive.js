@@ -3,6 +3,7 @@ app.directive('login', function () {
     restrict: 'E',
     controller: function ($scope, $auth, $rootScope, $window, $location) {
       //$auth is the injection for satellizer
+
         $scope.login = function() {
 
           var user = {
@@ -13,7 +14,7 @@ app.directive('login', function () {
 
           $auth.login(user)
             .then(function(response) {
-              console.log(response);
+              $rootScope.userName=response.data.user.name;
               $window.localStorage.currentUser = JSON.stringify(response.data.user);
               $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
               $location.path('/home');
@@ -21,6 +22,7 @@ app.directive('login', function () {
             .catch(function(response) {
               console.log(response);
             });
+
         };
 
         $scope.authenticate = function(provider) {
@@ -35,6 +37,8 @@ app.directive('login', function () {
           .catch(function(response) {
             console.log(response);
           });
+
+
 
         };
     },

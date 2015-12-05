@@ -4,9 +4,9 @@
             <p class="navbar-text" id="large">Target Marketing</p>
         </div>
         <div class="row">
-            <p class="navbar-text" id="small">Aim Small, Miss Small</p>
+            <p class="navbar-text" id="small">Aim Small, Miss Small<span></span></p>
         </div>
     </div>
-
+    <span><p ng-if="isAuthenticated()" class="navbar-text" id="user">Welcome, <em>{{userName}}</em>!</p></span>
 </nav>
 

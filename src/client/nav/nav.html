@@ -1,21 +1,17 @@
-<!-- Sidebar -->
-<!-- ng-controller="navbarCtrl" -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <img class="img-responsive" src="/images/bullseye.png">
-                <li ng-if="!isAuthenticated()"><a href="#/"><i class="fa fa-home"></i> Home</a></li>
-                <li ng-if="isAuthenticated()"><a href="#/home"><i class="fa fa-home"></i> Home</a></li>
-                <li ng-if="!isAuthenticated()"><a href="#/popular"><i class="fa fa-star"></i> Popular </a></li>
-                <li ng-if="isAuthenticated()"><a href="#/popular"><i class="fa fa-star"></i> Popular </a></li>
-                <li ng-if="!isAuthenticated()"><a href="#/research"><i class="fa fa-search"></i> Research</a></li>
-                <li ng-if="isAuthenticated()"><a href="#/research"><i class="fa fa-search"></i> Research</a></li>
-                <li ng-if="!isAuthenticated()"><a href="#/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li ng-if="isAuthenticated()"><a href="#/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li ng-if="!isAuthenticated()"><a href="#/login"><i class="fa fa-sign-in"></i> Login</a></li>
-                <li ng-if="!isAuthenticated()"><a href="#/signup"><i class="fa fa-sign-in"></i> Signup</a></li>
-                <li ng-if="isAuthenticated()"><a ng-click="logout()" href=""><i class="fa fa-sign-out"></i> Logout</a></li>
-                <li ng-if="isAuthenticated()"><a href="#/profile"><i class="fa fa-user"></i> Profile</a></li>
-                <li ng-if="isAuthenticated()"><a href="#/profile"><i class="fa fa-history"></i> Past Searches</a></li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+<div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <img class="img-responsive" src="/images/bullseye.png">
+            <li ng-if="!isAuthenticated()"><a href="#/"><i class="fa fa-home"></i> Home</a></li>
+            <li ng-if="isAuthenticated()"><a href="#/home"><i class="fa fa-home"></i> Home</a></li>
+            <li ng-if="!isAuthenticated()"><a href="#/research"><i class="fa fa-search"></i> Research</a></li>
+            <li ng-if="isAuthenticated()"><a href="#/research"><i class="fa fa-search"></i> Research</a></li>
+            <li ng-if="!isAuthenticated()"><a href="#/popular"><i class="fa fa-star"></i> State Ranks </a></li>
+            <li ng-if="isAuthenticated()"><a href="#/popular"><i class="fa fa-star"></i> State Ranks </a></li>
+            <li ng-if="!isAuthenticated()"><a href="#/login"><i class="fa fa-sign-in"></i> Login</a></li>
+            <li ng-if="!isAuthenticated()"><a href="#/signup"><i class="fa fa-sign-in"></i> Signup</a></li>
+            <li ng-if="isAuthenticated()"><a ng-click="logout()" href=""><i class="fa fa-sign-out"></i> Logout</a></li>
+            <li ng-if="isAuthenticated()"><a href="#/profile"><i class="fa fa-user"></i> Profile</a></li>
+        </ul>
+</div>
+
+
