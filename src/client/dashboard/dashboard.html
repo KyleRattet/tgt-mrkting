@@ -111,12 +111,13 @@
                 <div class="panel panel-primary">
                 <div class="panel-heading"><h3>Save Query</h3></div>
                 <div class="panel-body">
-                    <button ng-hide="showme" type="submit" class="btn btn-lg btn-primary btn-block" ng-click="showme=true">Save As</button>
+                    <div>
+                    <button ng-disabled="saveEnable == 0" ng-hide="showme" type="submit" class="btn btn-lg btn-primary btn-block" ng-click="showme=true" ng-model="saveEnable">{{saveButton}}</button>
                     <button ng-show="showme" type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addQuery(query)">Save</button>
-
+                    </div>
                     <div ng-show="showme">
-
-                    <input type="text" class="form-control" ng-model="queryName" placeholder="Insert Query Name" required>
+                    <br>
+                    <input ng-hide="queryInput" type="text" class="form-control" ng-model="queryName" placeholder="Insert Query Name" required>
 
                     <div class="message-section" ng-show="success">
                         <p class="alert alert-success" role="alert">{{message}}</p>
@@ -127,31 +128,6 @@
                 </div>
             </div>
 </div>
-
-
-<div class="row" ng-show="isAuthenticated()">
-
-<!-- <div class="col-md-offset-3 col-md-6 col-xs-12">
-    <div class="panel panel-primary">
-        <div class="panel-heading"><h3>Save Query</h3></div>
-            <div class="panel-body"></div>
-         <form class="login form-inline">
-            <div class="form-group">
-              <input type="text" class="form-control" ng-model="queryName" placeholder="Insert Query Name" required>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addQuery(query)">Save</button>
-            <br>
-            <div class="message-section" ng-show="success">
-                <p class="alert alert-success" role="alert">{{message}}</p>
-            </div>
-          </form>
-    </div>
-</div> -->
-
-</div>
-
-
 
 
 </div>

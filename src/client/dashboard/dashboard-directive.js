@@ -3,11 +3,14 @@ app.directive('dashboard', function () {
     restrict: 'E',
     controller: function ($scope, $http, $auth, $location, $window, $rootScope, httpFactory, $route, $routeParams, $timeout) {
 
+
+    $scope.showme = false;
+
     function messageTimeout () {
       $scope.success = false;
       $scope.showme = false;
     }
-      // $scope.message = "";
+
     $scope.addQuery = function(email, password) {
         $scope.message = "";
         $scope.save = true;
@@ -15,7 +18,6 @@ app.directive('dashboard', function () {
         var payload = {};
         payload.date = new Date();
         payload.name = $scope.queryName;
-        console.log($scope.queryName, 'payload query name');
         payload.category = $scope.category;
         payload.state = $scope.state_select;
         payload._id = JSON.parse(localStorage.getItem('currentUser'))._id;
@@ -32,7 +34,8 @@ app.directive('dashboard', function () {
               $scope.success = true;
               $scope.message = "This query has been saved.";
               $scope.password = "";
-              $timeout(messageTimeout, 3000);
+              $scope.queryInput = true;
+              $timeout(messageTimeout, 2500);
               $scope.queryName ="";
             } else {
               console.log('handle error');
@@ -44,7 +47,17 @@ app.directive('dashboard', function () {
 
       };
 
+      function message () {
+        if($auth.isAuthenticated() === true) {
+          $scope.saveButton = "Save As";
+          $scope.saveEnable = 1;
+        } else {
+          $scope.saveButton = "Must Be Logged In to Save";
+          $scope.saveEnable = 0;
+        }
+      }
 
+      message();
 
     },
     templateUrl: 'dashboard/dashboard.html',

@@ -3,7 +3,23 @@ app.directive('research', function () {
     restrict: 'E',
     controller: function ($scope, $rootScope, $http, $window, httpFactory, $route, $auth) {
 
-    // $scope.state_select = option.value="0";
+    ///use $scope.state select value to find scope.state list name that matches the value
+    //if state_list.value === $scope.state_select, grab that name
+    ///property of that value, i.e. if state_select = "01",
+    //want to get "Alabama"
+
+    function findName (array, value) {
+         var state = '';
+
+      for (var i = 0; i < array.length; i++) {
+        if (array[i].value === value) {
+          state = array[i].name;
+        }
+      }
+      return state;
+
+    }
+
 
     $scope.chartKeys = [
         ['DP05_0004','0-5','5-9','10-14', '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
@@ -41,9 +57,14 @@ app.directive('research', function () {
         var state = $scope.state_select;
         var keys = findKeys($scope.chartKeys, $scope.category);
         $scope.title = getTitle($scope.chartKeys,$scope.labels, $scope.category);
+        $scope.stateTitle = findName($scope.state_list,$scope.state_select);
+        console.log(state, "state select from state info line 44")
         httpFactory.get(url, {params: parameters})
         .then(function(response){
-            $scope.stateTitle = response.data[1][0];
+            console.log(response, "state response from state info line 47")
+            // $scope.stateTitle = response.data[1][0];
+            // $scope.stateTitle = findName($scope.state_list,$scope.state_select);
+            //  console.log($scope.stateTitle, "state title from state info line 48")
             $scope.stateData = response.data[1];
             $scope.statePieData = formatChartData(keys ,$scope.stateData);
             $scope.stateDiscreteBarData = [
@@ -64,7 +85,11 @@ app.directive('research', function () {
             });
             var cleaned = (cleanArray(sorted));
             var stateRankingName = $scope.stateTitle;
-            $scope.GDPposition  = (cleaned.map(function(e) { return e.GeoName; }).indexOf(stateRankingName) + 1);
+            // var stateRankingName = findName($scope.state_list,$scope.state_select);
+            console.log($scope.state_select, "state title line 67")
+            console.log(stateRankingName, "cleaned function line 65")
+            $scope.GDPposition  = (cleaned.map(function(e) { return e.GeoName; }).indexOf($scope.stateTitle) + 1);
+            console.log($scope.GDPposition, "scope gdp position line 68")
             $scope.stateGDP = cleaned[$scope.GDPposition -1].DataValue;
             $scope.stateGPDGaugeData = {
                 "ranges": [0,25,50],
@@ -150,19 +175,49 @@ app.directive('research', function () {
         });
     };
 
+    var promise = function (url) {
+        return httpFactory.get(url);
+    };
+
+
     $scope.getNationalData = function () {
-        getNatInfo('/query/census/national');
+        // getNatInfo('/query/census/national')
         getPopulationData('/query/bea/population');
         getDisposableData('/query/bea/population');
         getJobData('/query/bea/job');
-      };
+    };
+
+    // $scope.getNationalData = function () {
+    //     promise(getPersonalIncomeData('/query/bea/personal-income'))
+
+    //         .then(function (data) {
+    //             return promise(getPopulationData('/query/bea/population'));
+    //         })
+    //         .then(function (data) {
+    //             return promise(getBeaGDPData('/query/bea/gdp'));
+    //         })
+    //         .then(function (data) {
+    //             return promise(getJobData('/query/bea/job'));
+    //         })
+    //         .then(function (data) {
+    //             return promise(getStateInfo('/query/census/state'));
+    //         })
+    //         .then(function (data) {
+    //             return promise(getNatInfo('/query/census/national'));
+    //         });
+
+
+    // };
+
 
     $scope.getStateData = function () {
+        getStateInfo('/query/census/state');
+        getNatInfo('/query/census/national')
         $scope.dashboard = true;
         $scope.research = true;
-        getStateInfo('/query/census/state');
         getBeaGDPData('/query/bea/gdp');
         getPersonalIncomeData('/query/bea/personal-income');
+        // getPopulationData('/query/bea/population');
     };
 
     function retrieve () {
@@ -174,11 +229,12 @@ app.directive('research', function () {
     retrieve();
 
     $scope.run = function (name) {
-        $scope.dashboard = true;
-        $scope.research = true;
         $scope.index = findIndex(name ,$scope.queries);
         $scope.category = $scope.queries[$scope.index].category;
         $scope.state_select = $scope.queries[$scope.index].state;
+        $scope.dashboard = true;
+        $scope.queryInput = true;
+        $scope.research = true;
         getPopulationData('/query/bea/population');
         getDisposableData('/query/bea/population');
         getJobData('/query/bea/job');
@@ -193,7 +249,6 @@ app.directive('research', function () {
     $scope.reloadRoute = function() {
         $route.reload();
     };
-
 
 
     },

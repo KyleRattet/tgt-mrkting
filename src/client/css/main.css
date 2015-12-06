@@ -129,7 +129,7 @@ a {
 }
 
 .btn {
-    padding: 14px 24px;
+    padding: 10px 20px;
     border: 0 none;
     font-weight: 700;
     letter-spacing: 1px;
@@ -143,6 +143,12 @@ a {
 .btn-primary {
     background: #527CA6;
     color: #EEEEEE;
+}
+
+.btn-group-xs>.btn, .btn-xs {
+    padding: 8px 16px;
+    font-size: 9px;
+    line-height: 0;
 }
 
 .panel-heading {

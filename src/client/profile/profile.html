@@ -26,23 +26,7 @@
   </form>
 </div>
 
-<table class="table table-striped table-bordered table-condensed text-left">
-                    <caption class="text-center"><h3>Saved Queries</h3></caption>
-                    <thead class="text-center">
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="query in queries">
-                            <th>{{$index + 1}}</th>
-                            <td>{{query.name}}</td>
-                            <td>Date placeholder</td>
-                        </tr>
-                    </tbody>
-                </table>
+
 
  </div>
 
@@ -51,5 +35,35 @@
 </div>
 </div>
 
+<div class="row" ng-if="isAuthenticated()">
 
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h2>Query History</h2>
+        <h5><button ng-show="table" class="btn btn-xs btn-primary outline" ng-click="table = !table"><i class="fa fa-expand"></i> Expand</button>
+            <button ng-hide="table" class="btn btn-xs btn-primary outline" ng-click="table = !table"><i class="fa fa-compress"></i> Collapse</button>
+          </h5></div>
+            <div class="panel-body">
+
+    <table ng-hide="table" class="table table-striped table-bordered table-condensed text-center">
+          <thead class="text-center">
+              <tr class="text-center">
+                  <th class="text-center">#</th>
+                  <th class="text-center">Name</th>
+                  <th class="text-center">Date</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="query in queries">
+                    <th class="text-center">{{$index + 1}}</th>
+                    <td>{{query.name}}</td>
+                    <td>{{query.date | date : 'medium'}}</td>
+                </tr>
+          </tbody>
+      </table>
+      </div>
+    </div>
+
+
+
+</div>
 </div>

@@ -8,7 +8,7 @@
             <state-code-data></state-code-data>
         </div>
 
-        <button class="btn btn-lg btn-primary outline" ng-click="getNationalData(); getStateData()">Run Query</button>
+        <button ng-disabled="!category || !state_select" class="btn btn-lg btn-primary outline" ng-click="getNationalData(); getStateData()">Run Query</button>
   <br>
   <br>
   </div>
@@ -19,13 +19,16 @@
 
 <div class="row" ng-if="isAuthenticated()">
 
-
-
     <div class="panel panel-primary">
-        <div class="panel-heading"><h2>Saved Queries</h2></div>
+        <div class="panel-heading"><h2>Saved Queries</h2>
+        <h5><button ng-show="table" class="btn btn-xs btn-primary outline" ng-click="table = !table"><i class="fa fa-expand"></i> Expand</button>
+            <button ng-hide="table" class="btn btn-xs btn-primary outline" ng-click="table = !table"><i class="fa fa-compress"></i> Collapse</button>
+          </h5>
+        </div>
             <div class="panel-body">
 
-    <table class="table table-striped table-bordered table-condensed text-center">
+
+    <table ng-hide="table" class="table table-striped table-bordered table-condensed text-center">
           <thead class="text-center">
               <tr class="text-center">
                   <th class="text-center">#</th>
