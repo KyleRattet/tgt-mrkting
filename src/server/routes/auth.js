@@ -153,7 +153,7 @@ router.post('/github', function(req, res) {
   var params = {
     code: req.body.code,
     client_id: req.body.clientId,
-    redirect_uri: 'https://target-marketing.herokuapp.com/auth/github/callback',
+    redirect_uri: req.body.redirectUri,
     client_secret: config.GITHUB_SECRET
   };
 
