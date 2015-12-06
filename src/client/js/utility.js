@@ -86,6 +86,15 @@
       return index;
     }
 
+    function findName (array, value) {
+         var state = '';
 
+      for (var i = 0; i < array.length; i++) {
+        if (array[i].value === value) {
+          state = array[i].name;
+        }
+      }
+      return state;
+    }
 
 

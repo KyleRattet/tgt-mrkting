@@ -33,6 +33,16 @@ app.directive('categoryData', function () {
           label: 'Ethnicity',
           value:'DP05_0072PE,DP05_0073PE,DP05_0066PE,DP05_0075PE,DP05_0076PE,DP05_0074PE,DP05_0077PE',
           chartKeys: ['White','African American','Latino', 'Asian', 'Hawaiian/Pacific Islander', 'American Indian', 'Some Other Race']
+         },
+         {
+          label: 'Commuting Style',
+          value:'DP03_0019PE,DP03_0020PE,DP03_0021PE,DP03_0022PE,DP03_0024PE,DP03_0023PE',
+          chartKeys: ['Drive Alone','Carpool','Public Transport', 'Walk', 'Work From Home', 'Other']
+         },
+         {
+          label: 'Language Spoken at Home',
+          value:'DP02_0111PE,DP02_0112PE',
+          chartKeys: ['English Only', 'Other']
          }
       ];
     },
