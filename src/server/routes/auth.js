@@ -145,9 +145,8 @@ router.put('/addQuery', ensureAuthenticated, function(req, res) {
   });
 });
 
-// *** github auth *** //
-///changed*****
-// app.post('/auth/github', function(req, res) {
+// ** github auth ** //
+
 router.post('/github', function(req, res) {
   var accessTokenUrl = 'https://github.com/login/oauth/access_token';
   var userApiUrl = 'https://api.github.com/user';
