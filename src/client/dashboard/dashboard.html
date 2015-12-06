@@ -1,15 +1,5 @@
 <div ng-show="dashboard" class="container">
 
-  <!-- Page Header -->
-       <!--  <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Data Dashboard Category {{title}}
-                </h1>
-                <h3>You are viewing results on {{title}} for the state of {{stateTitle}}.</h3>
-            </div>
-        </div> -->
-        <!-- /.row -->
-
 <div class="row">
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -70,14 +60,14 @@
     <div class="row">
     <div class="col-md-6 col-xs-12">
         <div class="panel panel-primary">
-            <div class="panel-heading"><h4>{{stateTitle}}</h4></div>
+            <div class="panel-heading"><h4>{{stateTitle}} <i class="fa fa-pie-chart"></i></h4></div>
             <state-pie-chart-data></state-pie-chart-data>
         </div>
     </div>
 
     <div class="col-md-6 col-xs-12">
         <div class="panel panel-primary">
-            <div class="panel-heading"><h4>Nation</h4></div>
+            <div class="panel-heading"><h4>Nation <i class="fa fa-pie-chart"></i></h4></div>
             <national-pie-chart-data></national-pie-chart-data>
         </div>
     </div>
@@ -86,14 +76,14 @@
     <div class="row">
     <div class="col-md-6 col-xs-12">
         <div class="panel panel-primary">
-            <div class="panel-heading"><h4>{{stateTitle}}</h4></div>
+            <div class="panel-heading"><h4>{{stateTitle}} <i class="fa fa-bar-chart"></i></h4></div>
             <state-discrete-bar-chart-data></state-discrete-bar-chart-data>
         </div>
     </div>
 
     <div class="col-md-6 col-xs-12">
         <div class="panel panel-primary">
-            <div class="panel-heading"><h4>Nation</h4></div>
+            <div class="panel-heading"><h4>Nation <i class="fa fa-bar-chart"></i></h4></div>
             <national-discrete-bar-chart-data></national-discrete-bar-chart-data>
         </div>
     </div>
@@ -103,29 +93,65 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h3>Action</h3></div>
+            <div class="panel-body">
+
+                <div class="col-md-6 col-xs-12">
+                <div class="panel panel-primary">
+                <div class="panel-heading"><h3>Run Another Query</h3></div>
+                <div class="panel-body">
+                    <button class="btn btn-lg btn-primary btn-block" ng-click="searchAgain(); reloadRoute()"><i class="fa fa-repeat"></i> Query Again <i class="fa fa-repeat"></i></button>
+                </div>
+                </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                <div class="panel panel-primary">
+                <div class="panel-heading"><h3>Save Query</h3></div>
+                <div class="panel-body">
+                    <button ng-hide="showme" type="submit" class="btn btn-lg btn-primary btn-block" ng-click="showme=true">Save As</button>
+                    <button ng-show="showme" type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addQuery(query)">Save</button>
+
+                    <div ng-show="showme">
+
+                    <input type="text" class="form-control" ng-model="queryName" placeholder="Insert Query Name" required>
+
+                    <div class="message-section" ng-show="success">
+                        <p class="alert alert-success" role="alert">{{message}}</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+</div>
+
 
 <div class="row" ng-show="isAuthenticated()">
 
-<div class="col-md-offset-3 col-md-6 col-xs-12">
+<!-- <div class="col-md-offset-3 col-md-6 col-xs-12">
     <div class="panel panel-primary">
         <div class="panel-heading"><h3>Save Query</h3></div>
             <div class="panel-body"></div>
          <form class="login form-inline">
             <div class="form-group">
-              <label>Query Name: </label>
-              <input type="text" class="form-control" ng-model="queryName" placeholder="Insert Query Name" required><br>
-              <br>
+              <input type="text" class="form-control" ng-model="queryName" placeholder="Insert Query Name" required>
             </div>
             <br>
             <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="addQuery(query)">Save</button>
+            <br>
+            <div class="message-section" ng-show="success">
+                <p class="alert alert-success" role="alert">{{message}}</p>
+            </div>
           </form>
     </div>
-</div>
+</div> -->
 
 </div>
 
-<hr>
-<button class="btn btn-lg btn-primary btn-block" ng-click="searchAgain(); reloadRoute()">New Query</button>
+
 
 
 </div>

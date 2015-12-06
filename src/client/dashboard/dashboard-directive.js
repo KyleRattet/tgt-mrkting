@@ -1,11 +1,17 @@
 app.directive('dashboard', function () {
   return {
     restrict: 'E',
-    controller: function ($scope, $http, $auth, $location, $window, $rootScope, httpFactory, $route, $routeParams) {
+    controller: function ($scope, $http, $auth, $location, $window, $rootScope, httpFactory, $route, $routeParams, $timeout) {
 
-
+    function messageTimeout () {
+      $scope.success = false;
+      $scope.showme = false;
+    }
+      // $scope.message = "";
     $scope.addQuery = function(email, password) {
         $scope.message = "";
+        $scope.save = true;
+        $scope.success = false;
         var payload = {};
         payload.date = new Date();
         payload.name = $scope.queryName;
@@ -23,8 +29,11 @@ app.directive('dashboard', function () {
               $window.localStorage.currentUser = JSON.stringify(data);
               $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
               $scope.email = JSON.parse(localStorage.getItem('currentUser')).email;
-              $scope.message = "Updated query";
+              $scope.success = true;
+              $scope.message = "This query has been saved.";
               $scope.password = "";
+              $timeout(messageTimeout, 3000);
+              $scope.queryName ="";
             } else {
               console.log('handle error');
             }
@@ -32,8 +41,7 @@ app.directive('dashboard', function () {
           .error(function (err) {
             console.log('handle error: ', err);
           });
-        console.log(payload, "payload from addd query");
-        $scope.queries.push(payload);
+
       };
 
 
