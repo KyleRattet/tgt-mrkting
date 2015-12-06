@@ -5,6 +5,7 @@ app.directive('profile', function () {
       $scope.email = JSON.parse(localStorage.getItem('currentUser')).email;
       $scope.newEmail = $scope.email;
       $scope.name = JSON.parse(localStorage.getItem('currentUser')).name;
+      // $rootScope.userName = $scope.name;
       $scope.queries = JSON.parse(localStorage.getItem('currentUser')).queries;
       $scope.updateUser = function(email, password) {
         $scope.message = "";

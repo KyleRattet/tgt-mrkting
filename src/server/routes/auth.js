@@ -65,7 +65,6 @@ router.post('/signup', function(req, res) {
       email: req.body.email,
       password: req.body.password
     });
-    console.log(user, "local user created")
     user.save(function() {
       var token = createToken(user);
       res.send({

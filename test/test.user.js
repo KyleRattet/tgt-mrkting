@@ -88,4 +88,19 @@ describe('Testing Query Routes', function() {
       });
   });
 
+  it('should get bea popular', function(done) {
+    var url = 'http://bea.gov/api/data/?UserID='+BEA_id+'-Key&method=GetData&datasetname=RegionalData&KeyCode=GDP_SP&Year=2014&GeoFips=STATE&ResultFormat=json';
+    chai.request(server)
+      .get('/query/bea/popular')
+      .end(function(err, res){
+        console.log(res.body)
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('BEAAPI');
+        res.body.BEAAPI.should.have.property('Results');
+        res.body.BEAAPI.Results.should.be.a('object');
+        done();
+      });
+  });
 });

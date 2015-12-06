@@ -21,9 +21,7 @@ app.directive('stateDiscreteBarChartData', function () {
                 },
                 duration: 500,
                 xAxis: {
-                    axisLabel: 'Category',
-                    rotateLabels:-45
-
+                    rotateLabels:-30
                 },
                 yAxis: {
                     axisLabel: 'Percent of Population',

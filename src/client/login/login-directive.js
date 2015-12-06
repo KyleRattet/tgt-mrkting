@@ -14,7 +14,6 @@ app.directive('login', function () {
 
           $auth.login(user)
             .then(function(response) {
-              $rootScope.userName=response.data.user.name;
               $window.localStorage.currentUser = JSON.stringify(response.data.user);
               $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
               $location.path('/home');
@@ -31,7 +30,6 @@ app.directive('login', function () {
             .then(function(response) {
               $window.localStorage.currentUser = JSON.stringify(response.data.user);
               $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-              console.log(response);
               $location.path('/home');
             })
           .catch(function(response) {

@@ -15,7 +15,6 @@ app.directive('popular', function () {
         {name: "Elementary School", value: "DP02_0055PE"}
         ];
 
-    // national data from BEA
     getBeaData = function (url, search, variable) {
         var parameters = {category: search};
         httpFactory.get(url, {params: parameters})
@@ -27,10 +26,8 @@ app.directive('popular', function () {
             var cleaned = (cleanArray(sorted));
             $scope[variable] = getTopTen(cleaned);
         });
-
     };
 
-    //state data from CENSUS
     getCensusStateInfo = function (url, search, variable) {
         var parameters = { category: search };
         httpFactory.get(url, {params: parameters})

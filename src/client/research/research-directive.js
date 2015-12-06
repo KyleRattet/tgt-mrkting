@@ -19,9 +19,7 @@ app.directive('research', function () {
 
     getNatInfo = function (url) {
         var parameters = {category: $scope.category};
-        console.log($scope.category, 'scope category')
         var state = $scope.state_select;
-        console.log(state, "scope ")
         var keys = findKeys($scope.chartKeys, $scope.category);
         httpFactory.get(url, {params: parameters})
         .then(function(response){
@@ -68,7 +66,6 @@ app.directive('research', function () {
             var cleaned = (cleanArray(sorted));
             var stateRankingName = $scope.stateTitle;
             $scope.GDPposition  = (cleaned.map(function(e) { return e.GeoName; }).indexOf($scope.stateTitle) + 1);
-            console.log($scope.GDPposition, "scope gdp position line 68")
             $scope.stateGDP = cleaned[$scope.GDPposition -1].DataValue;
             $scope.stateGPDGaugeData = {
                 "ranges": [0,25,50],
