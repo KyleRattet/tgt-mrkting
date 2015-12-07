@@ -73,6 +73,11 @@ app.directive('categoryData', function () {
           label: 'Marital Status - Male',
           value:'DP02_0025PE,DP02_0026PE,DP02_0027PE,DP02_0029PE,DP02_0028PE',
           chartKeys: ['Never Married', 'Now Married', 'Seperated', 'Divroced', 'Widowed']
+         },
+         {
+          label: 'Housing - Year Built',
+          value:'DP04_0025PE,DP04_0024PE,DP04_0023PE,DP04_0022PE,DP04_0021PE,DP04_0020PE,DP04_0019PE,DP04_0018PE,DP04_0017PE',
+          chartKeys: ['1939 or Earlier', '1940-1949', '1950-1959', '1960-1969', '1970-1979', '1980-1989', '1990-1999', '2000-2009','2010 or Later']
          }
       ];
     },

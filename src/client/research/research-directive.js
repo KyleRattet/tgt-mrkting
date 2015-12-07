@@ -19,11 +19,12 @@ app.directive('research', function () {
         ['DP04_0057','Zero', 'One', 'Two', 'Three Or More'],
         ['DP02_0053','Preschool', 'Kindergarten', 'Grades 1-8', 'High School', 'College or Graduate'],
         ['DP02_0031','Never Married', 'Now Married', 'Seperated', 'Divroced', 'Widowed'],
-        ['DP02_0025','Never Married', 'Now Married', 'Seperated', 'Divroced', 'Widowed']
+        ['DP02_0025','Never Married', 'Now Married', 'Seperated', 'Divroced', 'Widowed'],
+        ['DP04_0025','1939 or Earlier', '1940-1949', '1950-1959', '1960-1969', '1970-1979', '1980-1989', '1990-1999', '2000-2009','2010 or Later']
 
     ];
 
-    $scope.labels = ['Age', 'Education Attained', 'Income', 'Home Prices', 'Employment', 'Ethnicity', 'Commuting Style', 'Language Spoken at Home', 'Rent Cost (Monthly)', 'Place of Birth', 'Vehicles Available (Household)', 'Education Enrollment (Age 3+)', 'Marital Status - Female','Marital Status - Male'];
+    $scope.labels = ['Age', 'Education Attained', 'Income', 'Home Prices', 'Employment', 'Ethnicity', 'Commuting Style', 'Language Spoken at Home', 'Rent Cost (Monthly)', 'Place of Birth', 'Vehicles Available (Household)', 'Education Enrollment (Age 3+)', 'Marital Status - Female','Marital Status - Male','Housing - Year Built'];
 
     getNatInfo = function (url) {
         var parameters = {category: $scope.category};
