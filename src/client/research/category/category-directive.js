@@ -10,7 +10,7 @@ app.directive('categoryData', function () {
           chartKeys: ['0-5','5-9','10-14', '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+']
          },
          {
-          label: 'Education',
+          label: 'Education Attained',
           value:'DP02_0059PE,DP02_0060PE,DP02_0061PE,DP02_0062PE,DP02_0063PE,DP02_0064PE,DP02_0065PE',
           chartKeys: ['<9th Grade','9th-12th','High School', 'Some College', 'Associates Degree', 'Bachelors Degree', 'Graduate Degree']
          },
@@ -43,6 +43,26 @@ app.directive('categoryData', function () {
           label: 'Language Spoken at Home',
           value:'DP02_0111PE,DP02_0112PE',
           chartKeys: ['English Only', 'Other']
+         },
+         {
+          label: 'Rent Cost (Monthly)',
+          value:'DP04_0125PE,DP04_0126PE,DP04_0127PE,DP04_0128PE,DP04_0129PE,DP04_0130PE,DP04_0131PE',
+          chartKeys: ['<$200', '$200-$299', '$300-$499', '$500-$749', '$750-$999', '$1000-$1499', '>$1500']
+         },
+         {
+          label: 'Place of Birth',
+          value:'DP02_0089PE,DP02_0090PE,DP02_0092PE,DP02_0091PE',
+          chartKeys: ['In State', 'Out of State', 'Foreign Born', 'Other']
+         },
+         {
+          label: 'Vehicles Available (Household)',
+          value:'DP04_0057PE,DP04_0058PE,DP04_0059PE,DP04_0060PE',
+          chartKeys: ['Zero', 'One', 'Two', 'Three Or More']
+         },
+         {
+          label: 'Education Enrollment (Age 3+)',
+          value:'DP02_0053PE,DP02_0054PE,DP02_0055PE,DP02_0056PE,DP02_0057PE',
+          chartKeys: ['Preschool', 'Kindergarten', 'Grades 1-8', 'High School', 'College or Graduate']
          }
       ];
     },

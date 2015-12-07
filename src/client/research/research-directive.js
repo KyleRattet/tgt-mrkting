@@ -12,10 +12,14 @@ app.directive('research', function () {
         ['DP03_0004','Employed','Unemployed','Armed Forces', 'Not in Labor Force'],
         ['DP05_0072','White','African American','Latino', 'Asian', 'Native Hawaiian', 'American Indian', 'Other'],
         ['DP03_0019','Drive Alone','Carpool','Public Transport', 'Walk', 'Work From Home', 'Other'],
-        ['DP02_0111','English Only', 'Other']
+        ['DP02_0111','English Only', 'Other'],
+        ['DP04_0125','<$200', '$200-$299', '$300-$499', '$500-$749', '$750-$999', '$1000-$1499', '>$1500'],
+        ['DP02_0089','In State', 'Out of State', 'Foreign Born', 'Other'],
+        ['DP04_0057','Zero', 'One', 'Two', 'Three Or More'],
+        ['DP02_0053','Preschool', 'Kindergarten', 'Grades 1-8', 'High School', 'College or Graduate']
     ];
 
-    $scope.labels = ['Age', 'Education', 'Income', 'Home Prices', 'Employment', 'Ethnicity', 'Commuting Style', 'Language Spoken at Home'];
+    $scope.labels = ['Age', 'Education Attained', 'Income', 'Home Prices', 'Employment', 'Ethnicity', 'Commuting Style', 'Language Spoken at Home', 'Rent Cost (Monthly)', 'Place of Birth', 'Vehicles Available (Household)', 'Education Enrollment (Age 3+)'];
 
     getNatInfo = function (url) {
         var parameters = {category: $scope.category};

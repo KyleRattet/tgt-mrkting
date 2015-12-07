@@ -11,7 +11,7 @@ var User = new Schema({
   },
   email: {
     type: String,
-    // unique: true,
+    unique: true,
     lowercase: true
   },
   password: {
@@ -32,7 +32,6 @@ var User = new Schema({
   }
   ]
 });
-
 
 // hash before saving to database
 User.pre('save', function(next) {

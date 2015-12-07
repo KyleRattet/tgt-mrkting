@@ -236,7 +236,7 @@ router.post('/github', function(req, res) {
 
     // Step 2. Retrieve profile information about the current user.
     request.get({ url: userApiUrl, qs: accessToken, headers: headers, json: true }, function(err, response, profile) {
-
+      console.log(response, 'github responose')
       // Step 3a. Link user accounts.
       if (req.headers.authorization) {
         User.findOne({ githubProfileID: profile.id }, function(err, existingUser) {
@@ -245,7 +245,7 @@ router.post('/github', function(req, res) {
           }
           var token = req.headers.authorization.split(' ')[1];
           var payload = jwt.decode(token, config.TOKEN_SECRET);
-          User.findById(payload.id, function(err, user) {
+          User.findById(payload.sub, function(err, user) {
             if (!user) {
               return res.status(400).send({ message: 'User not found' });
             }
@@ -272,10 +272,12 @@ router.post('/github', function(req, res) {
                 user: existingUser
               });
           }
+
           var user = new User();
           user.email = profile.email;
           user.name = profile.name;
           user.githubProfileID = profile.id;
+          console.log(user, "github user");
           user.save(function() {
             var token = createToken(user);
             res.send({
