@@ -93,7 +93,7 @@
     </div>
 </div>
 
-<div class="row">
+<div ng-hide="action" class="row">
     <div class="panel panel-primary">
         <div class="panel-heading"><h3>Action</h3></div>
             <div class="panel-body">
@@ -127,11 +127,38 @@
                 </div>
                 </div>
             </div>
-</div>
+    </div>
 
 
 </div>
 
+<div ng-show="action" class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h3>Action</h3></div>
+            <div class="panel-body">
 
+                <div class="col-md-6 col-xs-12">
+                <div class="panel panel-primary">
+                <div class="panel-heading"><h3>Back to Saved Queries</h3></div>
+                <div class="panel-body">
+                    <button class="btn btn-lg btn-primary btn-block" ng-click="searchAgain(); reloadRoute()"><i class="fa fa-repeat"></i> Return To Saved Queries <i class="fa fa-repeat"></i></button>
+                </div>
+                </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                <div class="panel panel-primary">
+                <div class="panel-heading"><h3>Reseach</h3></div>
+                <div class="panel-body">
+                    <div>
+                    <a type="button" href="#/research" class="btn btn-lg btn-primary btn-block" >Research New Queries</a>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+    </div>
+
+</div>
 
 

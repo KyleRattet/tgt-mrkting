@@ -1,11 +1,21 @@
 app.directive('profile', function () {
   return {
     restrict: 'E',
-    controller: function ($scope, $rootScope, $http, $window) {
+    controller: function ($scope, $rootScope, $http, $window, $auth) {
+
+      function hideResearch () {
+        $scope.input = false;
+        $scope.action = true;
+      }
+
+      hideResearch();
+
+      // $scope.dashboard = false;
+      // $scope.research = false;
+
       $scope.email = JSON.parse(localStorage.getItem('currentUser')).email;
       $scope.newEmail = $scope.email;
       $scope.name = JSON.parse(localStorage.getItem('currentUser')).name;
-      // $rootScope.userName = $scope.name;
       $scope.queries = JSON.parse(localStorage.getItem('currentUser')).queries;
       $scope.updateUser = function(email, password) {
         $scope.message = "";
@@ -33,6 +43,7 @@ app.directive('profile', function () {
             console.log('handle error: ', err);
           });
       };
+
     },
     templateUrl: 'profile/profile.html',
   };
