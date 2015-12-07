@@ -276,7 +276,8 @@ router.post('/google', function(req, res) {
        User.findOne({ googleProfileID: profile.sub }, function(err, existingUser) {
          if (existingUser) {
            return res.send({
-             token: createToken(existingUser)
+             token: createToken(existingUser),
+             user: existingUser
            });
          }
          var user = new User();
