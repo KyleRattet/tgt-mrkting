@@ -153,7 +153,7 @@ router.post('/github', function(req, res) {
   var params = {
     code: req.body.code,
     client_id: req.body.clientId,
-    redirect_uri: window.location.origin,
+    redirect_uri: req.body.redirectUri,
     client_secret: config.GITHUB_SECRET
   };
 
