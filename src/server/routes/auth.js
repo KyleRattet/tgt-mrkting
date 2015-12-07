@@ -245,10 +245,11 @@ router.post('/github', function(req, res) {
           }
           var token = req.headers.authorization.split(' ')[1];
           var payload = jwt.decode(token, config.TOKEN_SECRET);
-          User.findById(payload.sub, function(err, user) {
+          User.findById(payload.id, function(err, user) {
             if (!user) {
               return res.status(400).send({ message: 'User not found' });
             }
+            console.log(user, "github user")
             user.email = profile.email;
             user.name = profile.name;
             user.githubProfileID = profile.id;
