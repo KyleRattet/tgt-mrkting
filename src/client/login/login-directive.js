@@ -2,7 +2,8 @@ app.directive('login', function () {
   return {
     restrict: 'E',
     controller: function ($scope, $auth, $rootScope, $window, $location) {
-      //$auth is the injection for satellizer
+
+      $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
         $scope.login = function() {
 

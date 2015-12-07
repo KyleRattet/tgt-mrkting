@@ -63,6 +63,16 @@ app.directive('categoryData', function () {
           label: 'Education Enrollment (Age 3+)',
           value:'DP02_0053PE,DP02_0054PE,DP02_0055PE,DP02_0056PE,DP02_0057PE',
           chartKeys: ['Preschool', 'Kindergarten', 'Grades 1-8', 'High School', 'College or Graduate']
+         },
+         {
+          label: 'Marital Status - Female',
+          value:'DP02_0031PE,DP02_0032PE,DP02_0033PE,DP02_0035PE,DP02_0034PE',
+          chartKeys: ['Never Married', 'Now Married', 'Seperated', 'Divroced', 'Widowed']
+         },
+         {
+          label: 'Marital Status - Male',
+          value:'DP02_0025PE,DP02_0026PE,DP02_0027PE,DP02_0029PE,DP02_0028PE',
+          chartKeys: ['Never Married', 'Now Married', 'Seperated', 'Divroced', 'Widowed']
          }
       ];
     },

@@ -1,7 +1,7 @@
 app.directive('profile', function () {
   return {
     restrict: 'E',
-    controller: function ($scope, $rootScope, $http, $window, $auth) {
+    controller: function ($scope, $rootScope, $http, $window, $auth, $timeout) {
 
       function hideResearch () {
         $scope.input = false;
@@ -10,12 +10,14 @@ app.directive('profile', function () {
 
       hideResearch();
 
-      // $scope.dashboard = false;
-      // $scope.research = false;
+      function messageTimeout () {
+       $scope.update = false;
+       $scope.message = false;
+      }
 
       $scope.email = JSON.parse(localStorage.getItem('currentUser')).email;
       $scope.newEmail = $scope.email;
-      $scope.name = JSON.parse(localStorage.getItem('currentUser')).name;
+      $rootScope.name = JSON.parse(localStorage.getItem('currentUser')).name;
       $scope.queries = JSON.parse(localStorage.getItem('currentUser')).queries;
       $scope.updateUser = function(email, password) {
         $scope.message = "";
@@ -25,7 +27,7 @@ app.directive('profile', function () {
         if(password) {
           payload.password = password;
         }
-        // send XHR request
+
         $http.put('/auth/update', payload)
           .success(function (data, status) {
             if(status === 200 && data){
@@ -33,8 +35,9 @@ app.directive('profile', function () {
               $window.localStorage.currentUser = JSON.stringify(data);
               $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
               $scope.email = JSON.parse(localStorage.getItem('currentUser')).email;
-              $scope.message = "Updated!";
+              $scope.message = "Email Address Updated!";
               $scope.password = "";
+              $timeout(messageTimeout, 2500);
             } else {
               console.log('handle error');
             }
