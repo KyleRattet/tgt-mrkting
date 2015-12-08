@@ -83,6 +83,11 @@ app.directive('categoryData', function () {
           label: 'Housing - Year Moved Into',
           value:'DP04_0050PE,DP04_0051PE,DP04_0052PE,DP04_0053PE,DP04_0054PE,DP04_0055PE',
           chartKeys: ['2010 or Later', '2000-2009', '1990-1999', '1980-1989', '1970-1979', '1969 or Earlier']
+         },
+         {
+          label: 'Housing - Heating Fuel',
+          value:'DP04_0062PE,DP04_0063PE,DP04_0064PE,DP04_0065PE,DP04_0066PE,DP04_0067PE,DP04_0068PE,DP04_0069PE,DP04_0070PE',
+          chartKeys: ['Utility Gas', 'Tank LP Gas', 'Electricity', 'Fuel Oil', 'Coal', 'Wood', 'Solar', 'Other Fuel', 'No Fuel Used']
          }
       ];
     },
