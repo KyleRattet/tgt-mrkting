@@ -78,6 +78,11 @@ app.directive('categoryData', function () {
           label: 'Housing - Year Built',
           value:'DP04_0025PE,DP04_0024PE,DP04_0023PE,DP04_0022PE,DP04_0021PE,DP04_0020PE,DP04_0019PE,DP04_0018PE,DP04_0017PE',
           chartKeys: ['1939 or Earlier', '1940-1949', '1950-1959', '1960-1969', '1970-1979', '1980-1989', '1990-1999', '2000-2009','2010 or Later']
+         },
+         {
+          label: 'Housing - Year Moved Into',
+          value:'DP04_0050PE,DP04_0051PE,DP04_0052PE,DP04_0053PE,DP04_0054PE,DP04_0055PE',
+          chartKeys: ['2010 or Later', '2000-2009', '1990-1999', '1980-1989', '1970-1979', '1969 or Earlier']
          }
       ];
     },
