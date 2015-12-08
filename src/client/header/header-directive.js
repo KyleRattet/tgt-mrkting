@@ -3,9 +3,6 @@ app.directive('header', function () {
     restrict: 'E',
     controller: function ($scope, $window, $auth, $location, $rootScope) {
 
-    // function isAuthenticated () {
-    //   return $auth.isAuthenticated();
-    // }
     $scope.isAuthenticated = function() {
     return $auth.isAuthenticated();
     };

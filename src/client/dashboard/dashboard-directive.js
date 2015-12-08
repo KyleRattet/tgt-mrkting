@@ -11,6 +11,8 @@ app.directive('dashboard', function () {
       $scope.showme = false;
     }
 
+    $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
     $scope.addQuery = function(email, password) {
         $scope.message = "";
         $scope.save = true;
@@ -46,6 +48,7 @@ app.directive('dashboard', function () {
           });
 
       };
+
 
       function message () {
         if($auth.isAuthenticated() === true) {

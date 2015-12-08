@@ -4,6 +4,7 @@ app.directive('research', function () {
     controller: function ($scope, $rootScope, $http, $window, httpFactory, $route, $auth) {
 
     $rootScope.input = true;
+    $rootScope.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
     $scope.chartKeys = [
         ['DP05_0004','0-5','5-9','10-14', '15-19', '20-24', '25-34', '35-44', '45-54', '55-59', '60-64', '65-74', '75-84', '85+'],
@@ -220,6 +221,7 @@ app.directive('research', function () {
     $scope.reloadRoute = function() {
         $route.reload();
     };
+
 
 
     },

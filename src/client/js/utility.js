@@ -1,9 +1,7 @@
-     ///helper function to format chart data
-    function formatChartData (keys, values) {
 
+    function formatChartData (keys, values) {
       var valuesClean = values.shift();
       var keysClean = keys.shift();
-
       var data = [];
       for(var i=0; i<keysClean.length - 1; i++)  {
       data[i] = {};
@@ -13,26 +11,20 @@
         return data;
     }
 
-    //helper function to find keys for the pie chart
     function findKeys (keyArray, valueString) {
       var searchString = valueString.slice(0,9);
-
       var useKeys = [];
       for (var i = 0; i < keyArray.length; i++) {
         if (keyArray[i][0] === searchString) {
           useKeys.push(keyArray[i]);
         }
       }
-
       return useKeys;
-
     }
 
-    //helper function for category labels
     function getTitle (keyArray,labelArray,valueString) {
       var searchString = valueString.slice(0,9);
       var results = '';
-
       for (var i = 0; i < keyArray.length; i++) {
         if (keyArray[i][0] === searchString) {
           results = labelArray[i];
@@ -41,7 +33,6 @@
       return results;
     }
 
-    //helper function to convert pie data into discrete bar chart data
     function convertToDiscreteBarData (array) {
         var results = [];
         var convert = array.map(function(obj) {
@@ -53,7 +44,6 @@
         return results;
     }
 
-    // helper function to clean BEA data
     function cleanArray(array) {
         var clean =[];
         for (var i = 0; i<array.length; i++) {
@@ -65,19 +55,16 @@
       return clean;
     }
 
-    //helpful function to get top 10 lists
     function getTopTen (array) {
         var results = [];
         for (var i = 0; i < 10; i++) {
             results.push(array[i]);
         }
-
         return results;
     }
 
     function findIndex (name, array) {
       var index = '';
-
       for (var i = 0; i < array.length; i++) {
         if (array[i].name === name) {
           index = i;
@@ -87,8 +74,7 @@
     }
 
     function findName (array, value) {
-         var state = '';
-
+      var state = '';
       for (var i = 0; i < array.length; i++) {
         if (array[i].value === value) {
           state = array[i].name;

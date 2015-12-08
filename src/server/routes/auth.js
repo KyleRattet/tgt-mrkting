@@ -121,7 +121,7 @@ router.put('/update', ensureAuthenticated, function(req, res) {
   });
 });
 
-// *** add query testing
+// *** add query
 router.put('/addQuery', ensureAuthenticated, function(req, res) {
   console.log(req.body, "server side")
   User.findOne({_id: req.body._id}, function(err, user) {

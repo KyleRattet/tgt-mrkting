@@ -1,23 +1,23 @@
-<!-- <div ng-hide="research" class="container">
+<div ng-hide="research" class="container">
 
 <div ng-show="input" class="row">
   <div class="panel panel-primary">
     <div class="panel-heading"><h2>Research</h2></div>
-        <div class="panel-body"> -->
+        <div class="panel-body">
             <category-data></category-data>
             <state-code-data></state-code-data>
-        <!-- </div> -->
+        </div>
 
-        <!-- <button ng-disabled="!category || !state_select" class="btn btn-lg btn-primary outline" ng-click="getNationalData(); getStateData()">Run Query</button> -->
-  <br>
-  <br>
+        <button ng-disabled="!category || !state_select" class="btn btn-lg btn-primary outline" ng-click="getNationalData(); getStateData()">Run Query</button>
+    <br>
+    <br>
   </div>
 
 </div>
 
 <div>
 
-<!-- <div class="row" ng-if="!isAuthenticated()">
+<div class="row" ng-if="!isAuthenticated()">
 
     <div class="panel panel-primary">
         <div class="panel-heading"><h2>Sample Queries</h2>
@@ -58,12 +58,12 @@
       </div>
     </div>
 
-</div> -->
+</div>
 
 <div class="row" ng-if="isAuthenticated()">
 
     <div class="panel panel-primary">
-        <div class="panel-heading"><h2>{{name}}'s Query History</h2>
+        <div class="panel-heading"><h2>{{currentUser.name}}'s Query History</h2>
         <h5><button ng-show="table" class="btn btn-xs btn-primary outline" ng-click="table = !table"><i class="fa fa-expand"></i> Expand</button>
             <button ng-hide="table" class="btn btn-xs btn-primary outline" ng-click="table = !table"><i class="fa fa-compress"></i> Collapse</button>
           </h5>
@@ -75,7 +75,7 @@
           <thead class="text-center">
               <tr class="text-center">
                   <th class="text-center">#</th>
-                  <th class="text-center">Fetch</th>
+                  <th class="text-center">Run Query</th>
                   <th class="text-center">Name</th>
                   <th class="text-center">Date</th>
               </tr>
@@ -83,7 +83,7 @@
           <tbody>
               <tr ng-repeat="query in queries">
                     <th class="text-center">{{$index + 1}}</th>
-                    <td><button ng-click="run(query.name)" class="btn btn-primary btn-xs outline"><i class="fa fa-refresh"></i> Fetch</button></td>
+                    <td><button ng-click="run(query.name)" class="btn btn-primary btn-xs outline"><i class="fa fa-refresh"></i> Run</button></td>
                     <td>{{query.name}}</td>
                     <td>{{query.date | date : 'medium'}}</td>
                 </tr>
@@ -92,12 +92,6 @@
       </div>
     </div>
 
-
-
 </div>
-
-
 </div>
-
-
 </div>
