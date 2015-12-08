@@ -23,11 +23,13 @@ app.directive('research', function () {
         ['DP02_0025','Never Married', 'Now Married', 'Seperated', 'Divroced', 'Widowed'],
         ['DP04_0025','1939 or Earlier', '1940-1949', '1950-1959', '1960-1969', '1970-1979', '1980-1989', '1990-1999', '2000-2009','2010 or Later'],
         ['DP04_0050','2010 or Later', '2000-2009', '1990-1999', '1980-1989', '1970-1979', '1969 or Earlier'],
-        ['DP04_0062','Utility Gas', 'Tank LP Gas', 'Electricity', 'Fuel Oil', 'Coal', 'Wood', 'Solar', 'Other Fuel', 'No Fuel Used']
+        ['DP04_0062','Utility Gas', 'Tank LP Gas', 'Electricity', 'Fuel Oil', 'Coal', 'Wood', 'Solar', 'Other Fuel', 'No Fuel Used'],
+        ['DP04_0091','Without a Mortgage', 'With a Mortgage'],
+        ['DP04_0093','Less than $300', '$300-$499', '$500-$699', '$700-$999','$1000-$1499','$1500-$1999', '$2000 or More']
 
     ];
 
-    $scope.labels = ['Age', 'Education Attained', 'Income', 'Home Prices', 'Employment', 'Ethnicity', 'Commuting Style', 'Language Spoken at Home', 'Rent Cost (Monthly)', 'Place of Birth', 'Vehicles Available (Household)', 'Education Enrollment (Age 3+)', 'Marital Status - Female','Marital Status - Male','Housing - Year Built','Housing - Year Moved Into','Housing - Heating Fuel'];
+    $scope.labels = ['Age', 'Education Attained', 'Income', 'Home Prices', 'Employment', 'Ethnicity', 'Commuting Style', 'Language Spoken at Home', 'Rent Cost (Monthly)', 'Place of Birth', 'Vehicles Available (Household)', 'Education Enrollment (Age 3+)', 'Marital Status - Female','Marital Status - Male','Housing - Year Built','Housing - Year Moved Into','Housing - Heating Fuel','Housing - With or Without A Mortgage','Housing - Monthly Mortgage'];
 
     getNatInfo = function (url) {
         var parameters = {category: $scope.category};

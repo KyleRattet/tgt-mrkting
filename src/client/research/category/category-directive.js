@@ -88,6 +88,16 @@ app.directive('categoryData', function () {
           label: 'Housing - Heating Fuel',
           value:'DP04_0062PE,DP04_0063PE,DP04_0064PE,DP04_0065PE,DP04_0066PE,DP04_0067PE,DP04_0068PE,DP04_0069PE,DP04_0070PE',
           chartKeys: ['Utility Gas', 'Tank LP Gas', 'Electricity', 'Fuel Oil', 'Coal', 'Wood', 'Solar', 'Other Fuel', 'No Fuel Used']
+         },
+         {
+          label: 'Housing - With or Without A Mortgage',
+          value:'DP04_0091PE,DP04_0090PE',
+          chartKeys: ['Without a Mortgage', 'With a Mortgage']
+         },
+         {
+          label: 'Housing - Monthly Mortgage',
+          value:'DP04_0093PE,DP04_0094PE,DP04_0095PE,DP04_0096PE,DP04_0097PE,DP04_0098PE,DP04_0099PE',
+          chartKeys: ['Less than $300', '$300-$499', '$500-$699', '$700-$999','$1000-$1499','$1500-$1999', '$2000 or More']
          }
       ];
     },
