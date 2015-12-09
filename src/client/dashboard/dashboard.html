@@ -1,12 +1,22 @@
 <div ng-show="dashboard" class="container">
 
+
+
+
 <div class="row">
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3>State Rankings for {{stateTitle}}</h3>
         </div>
+
         <div class="panel-body">
 
+            <div ng-hide="spinning" class="col-md-4 col-sm-offset-4">
+                <br>
+                <img src="/images/gears.gif">
+            </div>
+            <br>
+    <div ng-show="spinning">
     <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="panel panel-primary">
             <div class="panel-heading"><h4>GDP</h4></div>
@@ -43,6 +53,7 @@
             <state-gauge-income-chart-data></state-gauge-income-chart-data>
         </div>
     </div>
+    </div>
 
     </div>
     </div>
@@ -56,7 +67,15 @@
             <h5 class="red">You are viewing results on {{title}} for {{stateTitle}}.</h5>
         </div>
         <div class="panel-body">
+    <div ng-hide="loader" class="col-md-4 col-sm-offset-4">
+        <br>
+        <img src="/images/gears.gif">
+        <br>
+        <br>
+    </div>
 
+    <!-- <div ng-hide="shouldShowThisDiv()"> -->
+    <!-- <div ng-show="loader"></div> -->
     <div class="row">
     <div class="col-md-6 col-xs-12">
         <div class="panel panel-primary">
@@ -88,6 +107,7 @@
         </div>
     </div>
     </div>
+
 
     </div>
     </div>

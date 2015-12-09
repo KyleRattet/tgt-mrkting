@@ -7,7 +7,13 @@
         <h2>State Ranks</h2>
         <h5 class="red">Top 10 States in Each Category</h5>
     </div>
-    <div class="panel-body">
+    <div ng-hide="loading" class="col-md-4 col-sm-offset-4">
+        <br>
+        <br>
+        <img src="/images/gears.gif">
+    </div>
+
+    <div ng-show="loading" class="panel-body">
       <div class="row">
             <div class="col-md-4">
                 <div class="panel panel-primary">

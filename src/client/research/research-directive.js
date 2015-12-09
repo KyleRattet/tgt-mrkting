@@ -37,6 +37,7 @@ app.directive('research', function () {
         var keys = findKeys($scope.chartKeys, $scope.category);
         httpFactory.get(url, {params: parameters})
         .then(function(response){
+            // $scope.isLoad=true;
             $scope.usData = response.data[1];
             $scope.Data = formatChartData(keys ,$scope.usData);
             $scope.nationalDiscreteBarData = [
@@ -45,6 +46,7 @@ app.directive('research', function () {
                     values: convertToDiscreteBarData($scope.Data)
                 }
                 ];
+            $scope.loader=true;
         });
     };
 
@@ -59,6 +61,7 @@ app.directive('research', function () {
         $scope.stateTitle = findName($scope.state_list,$scope.state_select);
         httpFactory.get(url, {params: parameters})
         .then(function(response){
+
             $scope.stateData = response.data[1];
             $scope.statePieData = formatChartData(keys ,$scope.stateData);
             $scope.stateDiscreteBarData = [
@@ -67,8 +70,10 @@ app.directive('research', function () {
                 values: convertToDiscreteBarData($scope.statePieData)
             }
             ];
+            $scope.loader=true;
         });
     };
+
 
     getBeaGDPData = function (url) {
         httpFactory.get(url)
@@ -86,6 +91,7 @@ app.directive('research', function () {
                 "measures": [$scope.GDPposition],
                 "markers": [$scope.GDPposition]
             };
+            $scope.spinning=true;
         });
     };
 
@@ -105,6 +111,7 @@ app.directive('research', function () {
                 "measures": [$scope.incomePosition],
                 "markers": [$scope.incomePosition]
             };
+            $scope.spinning=true;
         });
     };
 
@@ -124,6 +131,7 @@ app.directive('research', function () {
                 "measures": [$scope.populationPosition],
                 "markers": [$scope.populationPosition]
             };
+            $scope.spinning=true;
         });
     };
 
@@ -143,6 +151,7 @@ app.directive('research', function () {
                 "measures": [$scope.populationPosition],
                 "markers": [$scope.populationPosition]
             };
+            $scope.spinning=true;
         });
     };
 
@@ -162,14 +171,17 @@ app.directive('research', function () {
                 "measures": [$scope.jobPosition],
                 "markers": [$scope.jobPosition]
             };
+            $scope.spinning=true;
         });
     };
 
     $scope.getNationalData = function () {
 
         getPopulationData('/query/bea/population');
-        getDisposableData('/query/bea/population');
+        // getDisposableData('/query/bea/population');
         getJobData('/query/bea/job');
+        getBeaGDPData('/query/bea/gdp');
+        getPersonalIncomeData('/query/bea/personal-income');
     };
 
 
@@ -178,8 +190,7 @@ app.directive('research', function () {
         getNatInfo('/query/census/national')
         $scope.dashboard = true;
         $scope.research = true;
-        getBeaGDPData('/query/bea/gdp');
-        getPersonalIncomeData('/query/bea/personal-income');
+
     };
 
     function retrieve () {
